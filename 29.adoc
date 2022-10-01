@@ -1,0 +1,34 @@
+```
+(saldo 0)
+;; "zero"
+```
+
+Neste exemplo, quando o valor é menor que zero, o primeiro
+teste, logo de cara, retorna verdadeiro, e a expressão que o segue,
+ `"negativo"` , é avaliada (neste caso, não faz nada, apenas retorna
+a String "negativo"). Quando o valor é maior que zero, o primeiro
+teste ( (`< valor 0`) ) falha, retornando falso, mas o teste seguinte
+retorna  verdadeiro,  e  a  expressão  correspondente  é  avaliada.
+Agora,  quando  o  valor  é  exatamente    0  ,  as  duas  primeiras
+verificações  retornam  falso,  e  a  última  verificação  ( `:else` )  é
+validada e  `"zero"`  é retornado.
+
+O  que  significa  este   `:else` ?  Nada  demais,  na  real.  Como
+qualquer  coisa  diferente  de    `nil`    e    `false`    é  considerada
+verdadeira,  qualquer  coisa  que  colocássemos  ali  no  lugar  do
+ `:else`  funcionaria como uma forma de fazer com que  `"zero"` 
+fosse  retornado  por  padrão.  Se  quiser,  teste  lá  com  valores  como
+ 1  ou  `"milhão"` . Bem, não é realmente qualquer coisa: números
+(mesmo que 0), Strings (mesmo que vazias), caracteres, coleções...
+O  `:else`  é apenas uma convenção adotada por algumas pessoas
+as  quais  eu  andei  copiando.  Veremos  um  pouco  mais  sobre  essa
+"coisa" que começa com  :  no capítulo 4.
+
+=== 1.4 CONCLUSÃO
+
+Ufa!  Acho  que  agora  temos  a  capacidade  de  aumentar  um
+pouco  mais  a  complexidade  dos  problemas  que  podemos  tratar.
+Aqui aprendemos como interagir com o REPL do Clojure, chamar
+funções,  criar  nossas  próprias  funções  e  trabalhar  com
+condicionais.  No  próximo  capítulo,  resolveremos  um  problema
+bastante  comum  no  mundo  da  programação:  o  FizzBuzz.  Você

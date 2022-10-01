@@ -1,0 +1,2 @@
+verá  como  a  solução  para  este  problema  fica  bem  sucinta  em
+Clojure.
