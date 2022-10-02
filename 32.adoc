@@ -1,0 +1,48 @@
+seria  sempre  retornado.  Vamos  primeiro  criar  uma  função  que
+verifica se um número é divisível por outro:
+
+```
+(defn divisivel-por? [dividendo divisor]
+  (= 0 (mod dividendo divisor)))
+```
+Podemos dar uma melhorada de leve, substituindo o  = 0  pela
+função  nativa  que  verifica  se  um  número  é  exatamente    0  :
+ `zero?` . Então a função de verificar divisibilidade fica assim:
+
+```
+(defn divisivel-por? [dividendo divisor]
+  (zero? (mod dividendo divisor)))
+```
+
+Agora  podemos  chamar  esta  função  dentro  dos  condicionais
+que  checam  a  lógica  do  FizzBuzz,  começando  com  a  primeira
+verificação, a divisão por 3:
+
+```
+(defn fizzbuzz [numero]
+  (cond (divisivel-por? numero 3)  "fizz"
+        :else numero))
+```
+O  primeiro  passo  foi  dado.  Agora  podemos  ver  o  resultado
+para os múltiplos de 3
+
+```
+(fizzbuzz 3)
+;; "fizz"
+
+(fizzbuzz 6)
+;; "fizz"
+
+(fizzbuzz 20)
+;; 20
+
+(fizzbuzz 8)
+;; 8
+```
+Agora precisamos ver o caso dos múltiplos de 5:
+
+```
+(defn fizzbuzz [numero]
+  (cond (divisivel-por? numero 3)  "fizz"
+        (divisivel-por? numero 5)  "buzz"
+```

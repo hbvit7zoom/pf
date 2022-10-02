@@ -1,0 +1,29 @@
+== CAPÍTULO 2 RESOLVENDO O FIZZBUZZ
+
+Com  tudo  o  que  aprendemos  até  aqui,  podemos  resolver  um
+problema  simples  e  bem  comum  em  eventos  de  programação:  o
+FizzBuzz (https://en.wikipedia.org/wiki/Fizz_buzz).
+
+Explicando  brevemente,  devemos  criar  uma  função  que  nos
+retorne:
+
+* `fizz` , se o número for divisível por 3;
+* `buzz` , se divisível por 5;
+* `fizzbuzz` , se divisível por 3 e por 5; ou
+* o próprio número, caso contrário.
+
+Quer  tentar  primeiro,  antes  que  eu  mostre  uma  possível
+solução?
+
+Se não, vamos lá. Podemos começar pensando em como seria o
+nome ideal para uma função que fizesse o cálculo, e que recebesse
+um  argumento,  que  é  o  número  que  buscamos.  Que  tal  uma
+função que se chame  `fizzbuzz` ? Seria algo assim:
+
+```
+(defn fizzbuzz [numero]
+  numero)
+```
+
+Desse  jeito,  chamaríamos  a  função  assim:   (`fizzbuzz  8`) .
+Porém, claro, ainda não há lógica suficiente ali; o próprio número
