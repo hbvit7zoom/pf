@@ -36,4 +36,3 @@ Vamos testar?
 
 (saldo -900)
 ;; "negativo"
-```

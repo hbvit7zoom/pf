@@ -5,7 +5,7 @@ condicionais à nossa disposição?
 
 De  novo,  vamos  aplicar  algo  simples  na  jogada.  Que  tal
 exibirmos a palavra  `sim`  se um número for par, e, caso contrário,
-a  palavra  `não ?`  Pegando  carona  com  a  função  `even?` ,  nosso
+a  palavra  `não`?  Pegando  carona  com  a  função  `even?`,  nosso
 código fica assim:
 
 ```
