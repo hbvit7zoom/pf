@@ -14,8 +14,8 @@ Se um número é múltiplo de 3?
 ;; true
 ```
 
-Neste último exemplo, o que acontece é que vamos verificar o módulo da divisão entre  `9`  e  `3` . 
-O resultado será utilizado como o segundo argumento na função que verifica igualdade,  `=` .
+Neste último exemplo, o que acontece é que vamos verificar o módulo da divisão entre  `9`  e  `3`. 
+O resultado será utilizado como o segundo argumento na função que verifica igualdade,  `=`.
 
 === 1.2 NOSSAS PRÓPRIAS FUNÇÕES
 
@@ -28,10 +28,10 @@ Um exemplo de execução seria algo assim:
 (oi "galera")
 ```
 
-E o resultado esperado seria  `Oi`, `galera!` .
+E o resultado esperado seria  `Oi`, `galera!`.
 
 Sabemos que precisamos criar uma função que se chame  `oi`  e que receba um só argumento, uma String. 
-E que o coloque entre as Strings  `Oi`,  e  `!` .
+E que o coloque entre as Strings  `Oi`,  e  `!`.
 
 Para criar esta função, fazemos o seguinte:
 

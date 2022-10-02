@@ -17,11 +17,11 @@ Vamos  ver  algumas  operações  aritméticas primeiro. No REPL, digite a segui
 (+ 1 2)
 ```
 
-O resultado, como você já deve estar esperando, é  `3` .  
+O resultado, como você já deve estar esperando, é  `3`.  
 Ufa,  a máquina  virtual  ainda  sabe  fazer  contas  matemáticas.  
 Mas  a sintaxe parece bem diferente das linguagens com as quais estamos acostumados, não é? 
 Vale vermos um pouco de explicação do que acontece na linha que acabamos de digitar.
 
-Esta linha parece uma lista, composta de  `+` ,  `1`  e  `2` . 
+Esta linha parece uma lista, composta de  `+` ,  `1`  e  `2`. 
 E é isso mesmo.  
 Acontece  que  o  primeiro  elemento  desta  lista  é  especial.

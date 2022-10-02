@@ -1,5 +1,5 @@
-de argumentos, cercada por  `[`  e  `]` . 
-Neste caso, temos apenas um só argumento, então fica  `[nome]` .
+de argumentos, cercada por  `[`  e  `]`. 
+Neste caso, temos apenas um só argumento, então fica  `[nome]`.
 
 Em seguida vem o que realmente é executado: a concatenação de  Strings.  
 Note  que,  assim  como  em  algumas  linguagens,  não precisamos  definir  o  que  será  retornado.  
