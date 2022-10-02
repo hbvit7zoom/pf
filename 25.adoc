@@ -1,26 +1,18 @@
 .NAMESPACES
 ****
-Ao  criar  uma  função  no  REPL,  você  verá  que  a  saída  é  a
-seguinte:
+Ao  criar  uma  função  no  REPL,  você  verá  que  a  saída  é  a seguinte:
 
 ```
 #'user/oi
 ```
 
-Isto quer dizer que alguma coisa com o nome  oi  acabou de
-ser  criada,  e  encontra-se  no  _namespace_  padrão,    `user`.
-Namespaces em Clojure representam a mesma ideia que em
-outras  linguagens,  como  pacotes  em  Java,  sendo  uma  forma
-de agrupar funções. A combinação do namespace e do nome
-da função forma o identificador de tal função.
+Isto quer dizer que alguma coisa com o nome  oi  acabou de ser  criada,  e  encontra-se  no  _namespace_  padrão,    `user`.
+Namespaces em Clojure representam a mesma ideia que em outras  linguagens,  como  pacotes  em  Java,  sendo  uma  forma de agrupar funções. A combinação do namespace e do nome da função forma o identificador de tal função.
 
-A  função   `+` ,  por  exemplo,  é  encontrada  no  namespace
- clojure.core , sendo seu identificador  `clojure.core/+`.
-Como  o  namespace   `clojure.core` é  disponibilizado  por
-padrão,  a  função   `+`   está  sempre  disponível.  Funções  em
-outros  namespaces  precisam  ser  incluídas  no  nosso  código
-antes  de  serem  utilizadas.  Veremos  como  fazer  isto  em  um
-outro momento.
+A  função   `+` ,  por  exemplo,  é  encontrada  no  namespace clojure.core , sendo seu identificador  `clojure.core/+`.
+Como  o  namespace   `clojure.core` é  disponibilizado  por padrão,  a  função   `+`   está  sempre  disponível.  
+Funções  em outros  namespaces  precisam  ser  incluídas  no  nosso  código antes  de  serem  utilizadas.  
+Veremos  como  fazer  isto  em  um outro momento.
 ****
 
 Com a função criada, vamos aplicá-la ao nome desejado:
@@ -33,5 +25,5 @@ Com a função criada, vamos aplicá-la ao nome desejado:
 ;; "Oi, Margaret Hamilton!"
 ```
 
-O   defn   nos  indica  que  vamos  criar  uma  função.  Depois,
-damos um nome a ela; neste caso,  `oi`. Logo a seguir, vem a lista
+O   defn   nos  indica  que  vamos  criar  uma  função.  Depois, damos um nome a ela; neste caso,  `oi`. 
+Logo a seguir, vem a lista

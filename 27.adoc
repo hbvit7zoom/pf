@@ -1,12 +1,10 @@
 rumo  diferente  a  esta  lógica,  dependendo  de  alguma  condição?
-Clojure  também  tem  condicionais  (novidade!).  Que  tal
-incrementarmos  nossa  caixa  de  ferramentas  e  colocarmos  uns
-condicionais à nossa disposição?
+Clojure  também  tem  condicionais  (novidade!).  
+Que  tal incrementarmos  nossa  caixa  de  ferramentas  e  colocarmos  uns condicionais à nossa disposição?
 
-De  novo,  vamos  aplicar  algo  simples  na  jogada.  Que  tal
-exibirmos a palavra  `sim`  se um número for par, e, caso contrário,
-a  palavra  `não`?  Pegando  carona  com  a  função  `even?`,  nosso
-código fica assim:
+De  novo,  vamos  aplicar  algo  simples  na  jogada.  
+Que  tal exibirmos a palavra  `sim`  se um número for par, e, caso contrário, a  palavra  `não`?  
+Pegando  carona  com  a  função  `even?`,  nosso código fica assim:
 
 ```
 (defn par? [numero]
@@ -25,16 +23,12 @@ Vamos ver como nos saímos?
 ;; true
 ```
 
-if  tem muito a cara de uma função também. Até podemos
-enxergá-la como uma, mas ela é na verdade o que é chamado de
-_forma especial_: um recurso base do Clojure. Veremos outras (que
-são poucas, na verdade) ao longo do livro.
+if  tem muito a cara de uma função também. 
+Até podemos enxergá-la como uma, mas ela é na verdade o que é chamado de _forma especial_: um recurso base do Clojure. 
+Veremos outras (que são poucas, na verdade) ao longo do livro.
 
-O  `if`  recebe 3 argumentos, começando com uma verificação
-que retorna verdadeiro ou falso (`true`   ou  `false`).  Os  demais
-argumentos  representam  algo  a  ser  executado  de  acordo  com  o
-resultado da verificação. Em caso de verdadeiro, o argumento 2 é
-avaliado  e  retornado.  Caso  contrário,  o  argumento  3  é  que  é
-avaliado e retornado.
+O  `if`  recebe 3 argumentos, começando com uma verificação que retorna verdadeiro ou falso (`true`   ou  `false`).  
+Os  demais argumentos  representam  algo  a  ser  executado  de  acordo  com  o resultado da verificação. 
+Em caso de verdadeiro, o argumento 2 é avaliado  e  retornado.  Caso  contrário,  o  argumento  3  é  que  é avaliado e retornado.
 
 É  importante  salientar  que  *apenas*    `nil`    e    `false`    são

@@ -1,25 +1,20 @@
 considerados  realmente  falsos  para  a  verificação  de  condições.
-Outros,  como   `0`   e  String  vazia,  que  são  comuns  em  outras
-linguagens, serão avaliados como verdadeiro!
+Outros,  como   `0`   e  String  vazia,  que  são  comuns  em  outras linguagens, serão avaliados como verdadeiro!
 
-Vale  repetir:  *apenas*    `nil`  e  `false`    são  considerados
-realmente falsos!
+Vale  repetir:  *apenas*    `nil`  e  `false`    são  considerados realmente falsos!
 
 .CONSULTANDO A DOCUMENTAÇÃO
 ****
-Sempre  que  você  quiser  saber  mais  sobre  algum  recurso  do
-Clojure, você pode experimentar a documentação dentro do
-REPL! Para isso, use a função  `doc`:
+Sempre  que  você  quiser  saber  mais  sobre  algum  recurso  do Clojure, você pode experimentar a documentação dentro do REPL! Para isso, use a função  `doc`:
 ```
 (doc if)
 ```
 ****
 
 E se houver outra opção na nossa lógica, além de apenas duas?
-Por  exemplo,  dizer  quando  um  saldo  é  positivo,  negativo  ou
-zerado.  Nestes  casos,  a  macro   `cond`   pode  nos  ajudar  (veremos
-mais sobre macros no capítulo 5). Ela recebe pares de condicionais
-e expressões. Segue um exemplo:
+Por  exemplo,  dizer  quando  um  saldo  é  positivo,  negativo  ou zerado.  
+Nestes  casos,  a  macro   `cond`   pode  nos  ajudar  (veremos mais sobre macros no capítulo 5). 
+Ela recebe pares de condicionais e expressões. Segue um exemplo:
 
 ```
 (defn saldo [valor]

@@ -2,28 +2,26 @@
 
 === 1.1 AS PRIMEIRAS LINHAS DE CÓDIGO
 
-Tudo  preparado  para  escrevermos  código  loucamente?  Agora
-que você já instalou as ferramentas necessárias, vamos praticar um
-pouco. No terminal, volte a executar o REPL:
+Tudo  preparado  para  escrevermos  código  loucamente?
+Agora que você já instalou as ferramentas necessárias, vamos praticar um pouco. 
+No terminal, volte a executar o REPL:
 
 ```
  lein repl
 ```
 
-A  ideia  é  vermos  um  pouco  da  sintaxe  do  Clojure  para
-pegarmos um pouco de familiaridade, para, então, partirmos para
-coisas  bem  legais.  Vamos  ver  algumas  operações  aritméticas
-primeiro. No REPL, digite a seguinte operação:
+A  ideia  é  vermos  um  pouco  da  sintaxe  do  Clojure  para pegarmos um pouco de familiaridade, para, então, partirmos para coisas  bem  legais.  
+Vamos  ver  algumas  operações  aritméticas primeiro. No REPL, digite a seguinte operação:
 
 ```
 (+ 1 2)
 ```
 
-O resultado, como você já deve estar esperando, é  `3` .  Ufa,  a
-máquina  virtual  ainda  sabe  fazer  contas  matemáticas.  Mas  a
-sintaxe parece bem diferente das linguagens com as quais estamos
-acostumados, não é? Vale vermos um pouco de explicação do que
-acontece na linha que acabamos de digitar.
+O resultado, como você já deve estar esperando, é  `3` .  
+Ufa,  a máquina  virtual  ainda  sabe  fazer  contas  matemáticas.  
+Mas  a sintaxe parece bem diferente das linguagens com as quais estamos acostumados, não é? 
+Vale vermos um pouco de explicação do que acontece na linha que acabamos de digitar.
 
-Esta linha parece uma lista, composta de  `+` ,  `1`  e  `2` . E é isso
-mesmo.  Acontece  que  o  primeiro  elemento  desta  lista  é  especial.
+Esta linha parece uma lista, composta de  `+` ,  `1`  e  `2` . 
+E é isso mesmo.  
+Acontece  que  o  primeiro  elemento  desta  lista  é  especial.
