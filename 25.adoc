@@ -3,7 +3,9 @@
 Ao  criar  uma  função  no  REPL,  você  verá  que  a  saída  é  a
 seguinte:
 
- #'user/oi
+```
+#'user/oi
+```
 
 Isto quer dizer que alguma coisa com o nome  oi  acabou de
 ser  criada,  e  encontra-se  no  _namespace_  padrão,    `user`.
@@ -26,9 +28,10 @@ Com a função criada, vamos aplicá-la ao nome desejado:
 ```
 (oi "galera")
 ;; "Oi, galera!"
+
 (oi "Margaret Hamilton")
 ;; "Oi, Margaret Hamilton!"
 ```
 
 O   defn   nos  indica  que  vamos  criar  uma  função.  Depois,
-damos um nome a ela; neste caso,  oi . Logo a seguir, vem a lista
+damos um nome a ela; neste caso,  `oi`. Logo a seguir, vem a lista

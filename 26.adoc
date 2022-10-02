@@ -27,6 +27,7 @@ Então podemos chamar a função assim:
 ```
 (multiplo-de-3? 9)
 ;; true
+
 (multiplo-de-3? 20)
 ;; false
 ```

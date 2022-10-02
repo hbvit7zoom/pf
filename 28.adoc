@@ -2,7 +2,7 @@ considerados  realmente  falsos  para  a  verificação  de  condições.
 Outros,  como   `0`   e  String  vazia,  que  são  comuns  em  outras
 linguagens, serão avaliados como verdadeiro!
 
-Vale  repetir:  *apenas*    nil    e    false    são  considerados
+Vale  repetir:  *apenas*    `nil`  e  `false`    são  considerados
 realmente falsos!
 
 .CONSULTANDO A DOCUMENTAÇÃO
@@ -33,7 +33,6 @@ Vamos testar?
 ```
 (saldo 900)
 ;; "positivo"
-
 
 (saldo -900)
 ;; "negativo"

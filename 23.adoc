@@ -24,7 +24,7 @@ diferencial,  porém,  é  que  a  linguagem  exige  os  parênteses,  o  que
 não  deixa  margem  alguma  para  dúvidas  do  que  precede  o  quê.
 Portanto, a ordem de execução de código é sempre de dentro para
 fora. Então, primeiro veremos o código  `(+ 3 3)`  ser executado, e
-o resultado,  6 , é argumento para o seguinte,  `(* 2 6)`.
+o resultado,  `6` , é argumento para o seguinte,  `(* 2 6)`.
 
 Vamos ver como podemos concatenar Strings? Assim:
 
