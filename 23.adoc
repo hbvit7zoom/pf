@@ -1,0 +1,42 @@
+Este  elemento  é  uma  função  que  é  executada,  e  os  demais elementos desta lista são argumentos para esta função. 
+O mesmo se aplica a outras operações aritméticas:
+
+```
+(* 2 3)
+(/ 2 2)
+(- 0 2)
+```
+
+E se for uma operação um pouco mais complexa? Olhe só:
+
+```
+(* 2 (+ 3 3))
+;; isto é um comentário em Clojure e vamos
+;; utilizá-lo para demonstrar o retorno das funções
+;; 12
+```
+
+Este  exemplo  é  onde  Clojure  mostra  mais  um  diferencial  no sentido de sintaxe, fruto de sua herança de Lisp. 
+Do ponto de vista de  precedência,  é  claro  que  a  soma  será  executada  primeiro. 
+O diferencial,  porém,  é  que  a  linguagem  exige  os  parênteses,  o  que não  deixa  margem  alguma  para  dúvidas  do  que  precede  o  quê.
+Portanto, a ordem de execução de código é sempre de dentro para fora. 
+Então, primeiro veremos o código  `(+ 3 3)`  ser executado, e o resultado,  `6`, é argumento para o seguinte,  `(* 2 6)`.
+
+Vamos ver como podemos concatenar Strings? Assim:
+
+```
+(str "Oi, " "mundo!")
+```
+
+Como podemos verificar se duas Strings são iguais? Assim:
+
+```
+(= "Oi" "Olá")
+;; false
+
+(= "Oi" "Oi")
+;; true
+```
+
+É importante notar que, diferente de muitas linguagens,  `=`   é uma função em Clojure que verifica se duas coisas são iguais.
+O  `=` 

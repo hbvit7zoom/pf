@@ -1,0 +1,34 @@
+de argumentos, cercada por  `[`  e  `]`. 
+Neste caso, temos apenas um só argumento, então fica  `[nome]`.
+
+Em seguida vem o que realmente é executado: a concatenação de  Strings.  
+Note  que,  assim  como  em  algumas  linguagens,  não precisamos  definir  o  que  será  retornado.  
+A  última  instrução  é  o que será retornado; neste caso, o resultado da concatenação. 
+Note que o parêntese que foi aberto em  defn  só é fechado no final. 
+Isto nos ajuda muito a entender até onde vai o escopo do código que criamos.
+
+O  trecho  que  concatena  Strings  tem  uma  particularidade:  é aplicado em 3 argumentos. 
+Esta é uma de várias funções que são aplicáveis em uma quantidade indeterminada de argumentos.
+
+E como seria uma função que verifica se um número é múltiplo de  3?  
+Precisamos  verificar  se,  na  divisão  deste  número  por  3,  o resto é 0.
+
+```
+(defn multiplo-de-3? [dividendo]
+  (= 0 (mod dividendo 3)))
+```
+
+Então podemos chamar a função assim:
+
+```
+(multiplo-de-3? 9)
+;; true
+
+(multiplo-de-3? 20)
+;; false
+```
+
+=== 1.3  O  QUE  É  A  VERDADE?  SOBRE  OSCONDICIONAIS
+
+Há  pouco  aprendemos  a  criar  nossas  próprias  funções  e  a colocar  um  pouco  de  lógica  nelas.  
+Mas  e  se  quisermos  dar  um
