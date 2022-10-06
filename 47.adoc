@@ -1,0 +1,46 @@
+precisam ser:
+
+```
+{"chave muito louca" "de verdade"}
+;; {"chave muito louca" "de verdade"}
+```
+
+Mas  quando  utilizamos  keywords  como  chaves,  temos  um
+poder especial de utilizá-las para facilitar a busca pelo valor:
+
+```
+;; podemos pegar o valor assim:
+(get transacao :valor)
+;; 200
+
+;; ou assim:
+(:valor transacao)
+;; 200
+```
+
+O  que  acontece  aqui  é  que  keywords  podem  ser  utilizadas
+como função para pegar valores em mapas, o que simplifica muito
+o  trabalho  com  esta  estrutura  de  dados.  Podemos  também  ter
+valores opcionais caso a chave não seja encontrada no mapa:
+
+```
+(def transacao-desnecessaria {:valor   34
+                              :tipo    "despesa"
+                              :rotulos '("desnecessária"
+                                         "cartão")})
+;; #'user/transacao-desnecessaria
+
+(:rotulos transacao-desnecessaria)
+;; ("desnecessária" "cartão")
+
+(:rotulos transacao)
+;; nil
+
+(:rotulos transacao '())
+;; ()
+```
+
+Nesse código, criamos um mapa que tem como um dos valores
+uma lista (cuja chave é  `:rotulos` ), e dele obtemos tal lista usando
+a  chave.  Tentamos  fazer  o  mesmo  com   `transacao` ,  que  não
+possui a chave  `:rotulos` , e, portanto, não retorna nada ( `nil` )

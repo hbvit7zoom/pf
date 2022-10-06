@@ -1,0 +1,19 @@
+== CAPÍTULO 4 CONTROLE FINANCEIRO E NOVAS ESTRUTURAS DE DADOS
+Até  aqui  nós  trabalhamos  com  alguns  simples  exemplos  de
+como  utilizar  alguns  recursos  de  Clojure.  A  partir  deste  capítulo,
+vamos  trabalhar  com  um  exemplo  um  pouco  mais  elaborado,  de
+modo  que  possamos  ver,  aos  poucos,  tanto  os  conceitos  de
+Programação  Funcional,  quanto  novos  recursos  da  linguagem.  A
+ideia é criarmos uma ferramenta que nos ajude a controlar nossas
+finanças,  registrando  transações  de  entrada  e  saída  de  dinheiro  e
+relatórios diversos. Um apanhado das funcionalidades seria:
+
+* Registrar transações de receita e despesa
+* Agrupar  transações  por  categoria  (alimentação,  lazer,
+moradia)
+* Agrupar transações por período
+* Agrupar  transações  por  rótulos  (tags  como  desnecessária,
+inesperada e cara)
+
+E,  claro,  todo  desenvolvimento  será  de  forma  iterativa.  A
+começar pelas estruturas de dados que vamos utilizar.

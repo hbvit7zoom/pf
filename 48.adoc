@@ -1,0 +1,27 @@
+Em seguida tentamos obter o valor de  `:rotulos`  novamente, mas
+desta  vez  indicamos  que  teremos  uma  lista  vazia  ( '() )  caso  a
+chave  `:rotulos`  não seja encontrada.
+
+E por que retornar alguma coisa em vez de nulo quanto uma
+chave  não  é  encontrada  em  um  mapa?  Trabalhar  com  a
+possibilidade  de  valores  nulos  permite  a  introdução  de  diversos
+problemas,  vide  a  apresentação  do  erro  bilionário:
+https://www.infoq.com/presentations/Null-References-The-
+Billion-Dollar-Mistake-Tony-Hoare/.  Tanto  que  algumas
+linguagens  de  programação  mais  novas  nem  trazem  mais  este
+conceito.  Sempre  que  possível,  evite  a  possibilidade  de  ter  nulos
+como retorno.
+
+=== 4.3 CONCLUSÃO
+
+E é tudo isso que temos sobre o básico de linguagem! Clojure é
+uma  linguagem  de  programação  muito  simples,  e  é  comum  ver
+pessoas  creditando  o  seu  poder  a  esta  simplicidade.  Aqui
+encerramos  esta  parte  do  livro,  focada  em  trazer  o  básico  da
+linguagem para que possamos dar vida a ideias.
+
+Na  próxima  parte,  focaremos  em  princípios  da  Programação
+Funcional,  elaborando  os  conceitos  em  cima  do  que  aprendemos
+da  linguagem  e  no  exemplo  que  mencionamos  neste  capítulo.
+Prepare-se, um novo paradigma de programação espera por você!
+

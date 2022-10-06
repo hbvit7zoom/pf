@@ -1,0 +1,31 @@
+=== 4.1 KEYWORDS
+Conhecidas  como  símbolos  em  outras  linguagens  (Ruby,  por
+exemplo),  keywords  são  estruturas  de  dados  muito  simples,
+utilizadas principalmente como chaves de mapas. Lembra quando
+usamos   `:else`   no  capítulo  1?  Ali  utilizamos  este  símbolo  para
+declarar  alguma  coisa  não  nula  para  que  fosse  sempre  executada
+no fluxo da avaliação de condições.
+
+****
+Existe um tipo em Clojure chamado Symbol, que não deve ser
+confundido  com  keywords.  Recomendo  o  livro  _The  Joy  of
+Clojure_,  de  Michael  Fogus  e  Chris  Houser,  se  você  quiser
+saber mais sobre este tipo.
+****
+```
+;; uma keyword
+:a
+;; :a
+```
+
+Não  parece  fazer  muita  coisa,  não  é?  Mas  vamos  agora
+conhecer os mapas, e você verá o poder das keywords!
+
+=== 4.2 MAPAS
+
+Pensando no exemplo que descrevemos há pouco, seria normal
+já partirmos para a modelagem de classes. No mundo de Clojure,
+no entanto, trabalhamos com mapas para representar as entidades
+com  as  quais  vamos  trabalhar.  Logo,  em  vez  de  uma  classe  com
+atributos   `tipo`   e   `valor` ,  nós  trabalhamos  com  mapas  com
+chaves  `tipo`  e  `valor` . Assim:
