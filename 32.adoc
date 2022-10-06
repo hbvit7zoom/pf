@@ -4,8 +4,8 @@ Vamos  primeiro  criar  uma  função  que verifica se um número é divisível 
 ```
 (defn divisivel-por? [dividendo divisor]
   (= 0 (mod dividendo divisor)))
-
 ```
+
 Podemos dar uma melhorada de leve, substituindo o  `= 0`  pela função  nativa  que  verifica  se  um  número  é  exatamente    `0`: `zero?` . Então a função de verificar divisibilidade fica assim:
 
 ```
