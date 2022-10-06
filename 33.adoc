@@ -1,7 +1,6 @@
-```
+
         :else numero))
-```
-```
+
 (fizzbuzz 3)
 ;; "fizz"
 
@@ -22,7 +21,7 @@ E agora, e qual seria o resultado para o 15?
 ;; "fizz"
 ```
 
-O  resultado  foi   `"fizz"`  ,  o  que  é  compreensível.  O  que
+O  resultado  foi   `"fizz"`,  o  que  é  compreensível.  O  que
 acontece  é  que  a  primeira  condição  é  válida,  uma  vez  que  15  é
 divisível por 3. A saída é verificarmos, antes de tudo, se o número é
 divisível por 3 e por 5, como diz o enunciado do problema:
@@ -43,7 +42,7 @@ Vamos testar?
 ```
 
 Agora  sim!  A  função   `and`   verifica  a  veracidade  de  todos  os
-seus argumentos. Se todos eles forem  `true` ,  and  retorna  `true` .
-Se  algum  deles  for   `false` ,   and   retorna   `false` .  No  caso  do
-número 15,  and  recebe  `true`  e  `true` , portanto, retorna  `true` 
+seus argumentos. Se todos eles forem  `true`,  and  retorna  `true`.
+Se  algum  deles  for   `false`,   and   retorna   `false`.  No  caso  do
+número 15,  and  recebe  `true`  e  `true`, portanto, retorna  `true` 
 e  `"fizzbuzz"`  é o resultado.

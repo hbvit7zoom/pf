@@ -4,9 +4,10 @@ verifica se um número é divisível por outro:
 ```
 (defn divisivel-por? [dividendo divisor]
   (= 0 (mod dividendo divisor)))
+
 ```
-Podemos dar uma melhorada de leve, substituindo o  = 0  pela
-função  nativa  que  verifica  se  um  número  é  exatamente    0  :
+Podemos dar uma melhorada de leve, substituindo o  `= 0`  pela
+função  nativa  que  verifica  se  um  número  é  exatamente    `0`:
  `zero?` . Então a função de verificar divisibilidade fica assim:
 
 ```
@@ -39,10 +40,10 @@ para os múltiplos de 3
 (fizzbuzz 8)
 ;; 8
 ```
+
 Agora precisamos ver o caso dos múltiplos de 5:
 
 ```
 (defn fizzbuzz [numero]
   (cond (divisivel-por? numero 3)  "fizz"
         (divisivel-por? numero 5)  "buzz"
-```
