@@ -1,0 +1,47 @@
+        :else numero))
+
+(fizzbuzz 3)
+;; "fizz"
+
+(fizzbuzz 6)
+;; "fizz"
+
+(fizzbuzz 20)
+;; "buzz"
+
+(fizzbuzz 8)
+;; 8
+```
+
+E agora, e qual seria o resultado para o 15?
+
+```
+(fizzbuzz 15)
+;; "fizz"
+```
+
+O  resultado  foi   `"fizz"`,  o  que  é  compreensível.  
+O  que acontece  é  que  a  primeira  condição  é  válida,  uma  vez  que  15  é divisível por 3. 
+A saída é verificarmos, antes de tudo, se o número é divisível por 3 *e* por 5, como diz o enunciado do problema:
+
+```
+(defn fizzbuzz [numero]
+  (cond (and (divisivel-por? numero 3)
+             (divisivel-por? numero 5)) "fizzbuzz"
+        (divisivel-por? numero 3)  "fizz"
+        (divisivel-por? numero 5)  "buzz"
+        :else numero))
+```
+
+Vamos testar?
+
+```
+(fizzbuzz 15)
+;; "fizzbuzz"
+```
+
+Agora  sim!  A  função   `and`   verifica  a  veracidade  de  todos  os seus argumentos. 
+Se todos eles forem  `true`,  and  retorna  `true`.
+Se  algum  deles  for   `false`,   and   retorna   `false`.  
+No  caso  do número 15,  and  recebe  `true`  e  `true`, portanto, retorna  `true`  e  `"fizzbuzz"`  é o resultado.
+
