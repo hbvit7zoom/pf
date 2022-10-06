@@ -1,0 +1,12 @@
+Como esperado,  `"Jackson do Pandeiro"`  entra no conjunto
+ `artistas` , mas em uma posição que é difícil de prever. E  `"Chico
+César"`  não aparece duplicado no conjunto, porque já tem um lá.
+
+=== 3.4 CONCLUSÃO
+
+Neste  capítulo,  vimos  um  pouco  das  estruturas  de  dados  que
+Clojure  oferece:  listas,  vetores  e  conjuntos.  Mas  ainda  tem  um
+pouco mais para vermos no próximo capítulo: mapas. Além disto,
+descreveremos o exemplo que vamos trabalhar ao longo do resto
+do livro, que é um controle financeiro pessoal. Quem sabe não vira
+um produto de sucesso?

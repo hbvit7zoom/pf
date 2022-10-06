@@ -1,0 +1,44 @@
+```
+public String fizzBuzz(Integer numero) { ... }
+
+// uma lista com números de 1 a 15
+List<Integer> numeros = ...
+
+// uma lista para o resultado
+List<Integer> resultado = new ArrayList<>();
+
+// varre cada número, verifica qual o fizzbuzz e adiciona na
+// lista de resultado
+for (Integer numero : numeros) {
+    resultado.add(fizzBuzz(numero));
+}
+
+System.out.println(resultado);
+```
+
+Nas versões 7 e anteriores do Java, precisamos descrever como
+é  o  processo  de  aplicar  uma  função:  dizemos  explicitamente  que
+devem ser varridos todos os elementos, e o resultado de FizzBuzz
+no elemento deve ser copiado para uma outra lista. Já no Java 8, as
+coisas mudam um pouco: somente dizemos o que precisa ser feito,
+e não como:
+
+```
+public String fizzBuzz(Integer numero) { ... }
+List<Integer> numeros = ...
+
+List<String> resultado = numeros.stream()
+                                .map(FizzBuzzeria::fizzBuzz)
+                                .collect(Collectors.toList());
+
+System.out.println(resultado);
+```
+
+Brevemente, o que acontece nesse último trecho de código é:
+
+* Utilizamos  o  método   `stream`()   para  gerar  uma  versão
+funcionalmente navegável da lista  `numeros` .
+
+* Pedimos  que  o  método   `fizzBuzz` ,  presente  na  classe
+ `FizzBuzzeria` , seja aplicado a cada elemento do que foi
+gerado no item acima.

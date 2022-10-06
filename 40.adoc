@@ -1,0 +1,26 @@
+livro  _Clojure  Applied:  From  Practice  to  Practitioner_,  de  Ben
+Vandgrift e Alex Miller, elabora muito bem sobre quando melhor
+usar cada estrutura de dados.
+
+```
+(def cantor-arretado (vector "Chico César" "Catolé do Rocha"
+                             26 "janeiro" 1964))
+;; #'user/cantor-arretado
+
+(get cantor-arretado 0)
+;; "Chico César"
+
+(get cantor-arretado 4)
+;; 1964
+
+(last cantor-arretado)
+;; 1964
+
+;; vamos incluir um novo elemento no vetor
+(conj cantor-arretado "MPB")
+;; ["Chico César" "Catolé do Rocha" 26 "janeiro" 1964 "MPB"]
+
+;; e agora ver o estado atual do vetor
+cantor-arretado
+;; ["Chico César" "Catolé do Rocha" 26 "janeiro" 1964]
+```
