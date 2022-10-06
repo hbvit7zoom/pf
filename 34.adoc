@@ -3,4 +3,5 @@ Dado que já aprendemos sobre a função  `and`, que tal praticar no REPL uma ou
 === 2.1 CONCLUSÃO
 
 Esta  é  uma  das  várias  possíveis  soluções  para  este  problema.
-Aqui vimos um pouco mais a aplicabilidade de condicionais e uma nova função,  and . Logo mais daremos nosso primeiro passo no mundo funcional através da função  `map`.
+Aqui vimos um pouco mais a aplicabilidade de condicionais e uma nova função,  `and`. 
+Logo mais daremos nosso primeiro passo no mundo funcional através da função  `map`.
