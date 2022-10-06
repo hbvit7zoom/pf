@@ -44,3 +44,4 @@ Agora  sim!  A  função   `and`   verifica  a  veracidade  de  todos  os seus a
 Se todos eles forem  `true`,  and  retorna  `true`.
 Se  algum  deles  for   `false`,   and   retorna   `false`.  
 No  caso  do número 15,  and  recebe  `true`  e  `true`, portanto, retorna  `true`  e  `"fizzbuzz"`  é o resultado.
+
