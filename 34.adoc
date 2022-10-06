@@ -1,4 +1,4 @@
-Dado que já aprendemos sobre a função  `and` , que tal praticar no REPL uma outra função interessante, a função  `or`?
+Dado que já aprendemos sobre a função  `and`, que tal praticar no REPL uma outra função interessante, a função  `or`?
 
 === 2.1 CONCLUSÃO
 

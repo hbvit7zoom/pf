@@ -19,5 +19,5 @@ Que  tal  uma função que se chame  `fizzbuzz`? Seria algo assim:
   numero)
 ```
 
-Desse  jeito,  chamaríamos  a  função  assim:   (`fizzbuzz  8`).
+Desse  jeito,  chamaríamos  a  função  assim:   `(fizzbuzz  8)`.
 Porém, claro, ainda não há lógica suficiente ali; o próprio número
