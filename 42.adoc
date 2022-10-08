@@ -1,4 +1,4 @@
-```
+
 (nth cantora-arretada 0)
 ;; "Renata Arruda"
 
@@ -18,9 +18,7 @@
 
 === 3.3 SETS
 
-Assim como em quase toda linguagem de programação mundo
-afora,  Clojure  também  traz  uma  estrutura  de  dados  que  mantém
-uma lista de valores únicos: os sets.
+Assim como em quase toda linguagem de programação mundo afora,  Clojure  também  traz  uma  estrutura  de  dados  que  mantém uma lista de valores únicos: os sets.
 
 ```
 ;; Podemos criar sets assim:

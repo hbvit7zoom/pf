@@ -16,12 +16,8 @@ for (Integer numero : numeros) {
 System.out.println(resultado);
 ```
 
-Nas versões 7 e anteriores do Java, precisamos descrever como
-é  o  processo  de  aplicar  uma  função:  dizemos  explicitamente  que
-devem ser varridos todos os elementos, e o resultado de FizzBuzz
-no elemento deve ser copiado para uma outra lista. Já no Java 8, as
-coisas mudam um pouco: somente dizemos o que precisa ser feito,
-e não como:
+Nas versões 7 e anteriores do Java, precisamos descrever como é  o  processo  de  aplicar  uma  função:  dizemos  explicitamente  que devem ser varridos todos os elementos, e o resultado de FizzBuzz no elemento deve ser copiado para uma outra lista. 
+Já no Java 8, as coisas mudam um pouco: somente dizemos o que precisa ser feito, e não como:
 
 ```
 public String fizzBuzz(Integer numero) { ... }

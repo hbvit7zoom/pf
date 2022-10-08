@@ -1,5 +1,4 @@
-livro  _Clojure  Applied:  From  Practice  to  Practitioner_,  de  Ben
-Vandgrift e Alex Miller, elabora muito bem sobre quando melhor usar cada estrutura de dados.
+livro  _Clojure  Applied:  From  Practice  to  Practitioner_,  de  Ben Vandgrift e Alex Miller, elabora muito bem sobre quando melhor usar cada estrutura de dados.
 
 ```
 (def cantor-arretado (vector "Chico César" "Catolé do Rocha"

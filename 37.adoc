@@ -1,41 +1,33 @@
-```
+
 ;; #'user/um-ate-15
 ```
 
 *FizzBuzz até 15, em Clojure*
 
-Agora  podemos  ver  como  fica  o  FizzBuzz  aplicado  a  cada
-número desta sequência.
+Agora  podemos  ver  como  fica  o  FizzBuzz  aplicado  a  cada número desta sequência.
 
 ```
 (map fizzbuzz um-ate-15)
 ;; (1 2 "fizz" 4 "buzz" "fizz" 7 ... 13 14 "fizzbuzz")
 ```
 
-O  que  acontece  aqui  é  que,  com   map ,  vamos  aplicar  uma
-função ( `fizzbuzz` ) a cada elemento de uma lista ( `um-ate-15` ).
-Confesso  que,  na  primeira  vez  que  vi  uma  sentença  assim,  achei
-que o código era sucinto demais para ser verdade. O grande ponto
-aqui é que nós descrevemos no código o que precisa ser feito, e não
-como.  O  compilador  e  a  JVM  vão  cuidar  para  que  a  operação
-ocorra da forma mais otimizada possível.
+O  que  acontece  aqui  é  que,  com   map ,  vamos  aplicar  uma função ( `fizzbuzz` ) a cada elemento de uma lista ( `um-ate-15` ).
+Confesso  que,  na  primeira  vez  que  vi  uma  sentença  assim,  achei que o código era sucinto demais para ser verdade. 
+O grande ponto aqui é que nós descrevemos no código o que precisa ser feito, e não como.  
+O  compilador  e  a  JVM  vão  cuidar  para  que  a  operação ocorra da forma mais otimizada possível.
 
-Na próxima parte do livro, no capítulo 5, vamos conversar em
-mais detalhes sobre  map  e funções afins. Mas se você quiser ver
-um pouco mais sobre a função  map , sugiro olhar a documentação.
+Na próxima parte do livro, no capítulo 5, vamos conversar em mais detalhes sobre  map  e funções afins. 
+Mas se você quiser ver um pouco mais sobre a função  map , sugiro olhar a documentação.
 
 ```
 (doc map)
 ```
 
-Que  tal  um  ligeiro  comparativo  de  como  seria  o  mesmo
-procedimento em Java?
+Que  tal  um  ligeiro  comparativo  de  como  seria  o  mesmo procedimento em Java?
 
 *FizzBuzz até 15, em Java*
 
-Antes  de  Java  ter  closures  (antes  do  Java  8),  seria  mais  ou
-menos  assim  que  varreríamos  uma  coleção  para  aplicar  a  função
-FizzBuzz para os números de 1 a 15:
+Antes  de  Java  ter  closures  (antes  do  Java  8),  seria  mais  ou menos  assim  que  varreríamos  uma  coleção  para  aplicar  a  função FizzBuzz para os números de 1 a 15:
 
 ```
 // pseudo-java, OK?
