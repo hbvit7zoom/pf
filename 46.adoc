@@ -21,19 +21,14 @@ transacao
 ```
 
 ****
-Vírgulas  podem  ser  usadas  também  para  separar  elementos
-de  um  conjunto,  mas  são  dispensáveis.  Clojure  vai  tratá-las
-como um espaço em branco também. Eu não as uso, mas você
-as verá com frequência na saída do REPL, quando um mapa é
-impresso.  Perceba  que  não  há  vírgula  na  definição  de
- `transacao` , mas elas aparecem quando o REPL a imprime,
-separando pares.
+Vírgulas  podem  ser  usadas  também  para  separar  elementos de  um  conjunto,  mas  são  dispensáveis.  
+Clojure  vai  tratá-las como um espaço em branco também. 
+Eu não as uso, mas você as verá com frequência na saída do REPL, quando um mapa é impresso.  
+Perceba  que  não  há  vírgula  na  definição  de `transacao` , mas elas aparecem quando o REPL a imprime, separando pares.
 ****
 
-E  é  com  estruturas  de  dados  simples  assim  que  muitos
-programas  complexos  são  feitos  em  Clojure.  No  código  de
-exemplo anterior, declaramos um mapa com dois pares de chave-
-valor.  Logo  a  seguir,  adicionamos  um  outro  par,  cuja  chave  é
- `:categoria` .
+E  é  com  estruturas  de  dados  simples  assim  que  muitos programas  complexos  são  feitos  em  Clojure.  
+No  código  de exemplo anterior, declaramos um mapa com dois pares de chave-valor.  
+Logo  a  seguir,  adicionamos  um  outro  par,  cuja  chave  é `:categoria` .
  
 Normalmente  as  chaves  de  mapas  são  keywords,  mas  não
