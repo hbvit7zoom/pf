@@ -1,0 +1,17 @@
+== CAPÍTULO 3 ESTRUTURAS DE DADOS EM CLOJURE
+
+Agora  que  temos  o  FizzBuzz  resolvido,  que  tal  aplicar  esta lógica a uma lista de números? 
+Até agora vimos um pouco sobre estruturas de dados em Clojure e chegou a hora de vermos listas e mapas! 
+Vejamos primeiro as listas.
+
+=== 3.1 LISTAS
+
+```
+;; é assim que criamos uma lista em Clojure
+(list 1 2 3 4 5)
+;; (1 2 3 4 5)
+
+;; ou assim
+'(1 2 3 4 5)
+;; (1 2 3 4 5)
+```

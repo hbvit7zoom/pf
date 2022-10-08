@@ -1,0 +1,33 @@
+* Por  fim,  pedimos  que  a  JVM  colete  os  resultados  da
+operação anterior e os traga como uma lista.
+
+Mas, como este não é um livro de Java, não precisamos entrar em  detalhes  de  tudo  isso.  
+Recomendo  a  leitura  do  livro  _Java  8_ _Prático:  Lambdas,  Streams  e  os  novos  recursos  da  linguagem_
+(https://www.casadocodigo.com.br/products/livro-java8/).
+
+=== 3.2 VETORES
+
+Até  agora  falei  muito  em  listas,  mas  Clojure  também  traz  a ideia de vetores:
+
+```
+;; para criar um vetor:
+(vector 1 2 3 4 5)
+;; [1 2 3 4 5]
+
+;; ou apenas
+[1 2 3 4 5]
+;; [1 2 3 4 5]
+
+(def numeros-vetorizados [1 2 3 4 5])
+;; #'user/numeros-vetorizados
+
+;; muita coisa funciona tanto para listas quanto vetores
+(map fizzbuzz numeros-vetorizados)
+;; (1 2 "fizz" 4 "buzz")
+```
+
+Existem  diferenças  sutis  entre  ambas  as  estruturas  de  dados, principalmente  no  aspecto  de  desempenho.  
+Mas  não  recomendo que  você  se  preocupe  com  desempenho  agora,  apenas  com  quão diferentes  elas  são  do  ponto  de  vista  de  manipulá-las.  
+Os  vetores são  como  os  famosos  _arrays_,  começando  da  posição  0,  e  podem guardar  elementos  de  qualquer  tipo,  permitindo  a  busca  dos elementos através do índice. 
+Vetores são eficientes para adicionar itens  ao  final,  enquanto  listas,  para  adicionar  itens  no  início.  
+O

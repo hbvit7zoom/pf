@@ -1,0 +1,21 @@
+****
+Clojure  trata  todo  espaço  em  branco  como  um  simples espaço. 
+Isto quer dizer que tabulação (devido ao uso da tecla `TAB`)  e  quebra  de  linha  (`ENTER`)  são  tratados  da  mesma forma  que  um  espaço  em  branco.  
+Perceba  que  os  valores passados para a construção do vetor em  `cantor-arretado`  tem  uma  quebra  de  linha  depois  de   `"Catolé do Rocha"` .
+Devido  ao  limite  de  caracteres  para  exibição  de  código  no livro,  encontraremos  mais  algumas  quebras  de  linha  como esta. 
+Funcionalmente, é o mesmo que um espaço em branco, então  você  não  precisa  se  preocupar  em  quebrar  a  linha  no seu código.
+****
+
+Aqui criamos um vetor que possui Strings e números. 
+Por ser um  vetor,  podemos  pegar  itens  de  posições  variadas,  como  em (`get cantor-arretado 4`) .  Perceba  que,  ao  digitar   `cantor-arretado`  (sem os parênteses), o resultado não contém  `"MPB"` . 
+O que acontece é que, por padrão, as estruturas de dados em Clojure são imutáveis - também tema da próxima parte do livro.
+
+Diferentemente dos vetores, com listas não conseguimos pegar diretamente  um  elemento  de  uma  posição  específica.  
+Para  isso, utilizamos  a  função   `nth` ,  que  nos  permite  pegar  elementos  em uma  determinada  posição.  
+O  problema  aqui  é  que  esta  função precisa  percorrer  elemento  por  elemento  na  lista,  então  tem  um pouco de perda de desempenho.
+
+```
+;; listas também podem conter elementos de tipos variados
+(def cantora-arretada (list "Renata Arruda" "João Pessoa"
+                             23 "dezembro" 1967))
+;; #'user/cantora-arretada

@@ -1,0 +1,27 @@
+****
+POR QUE O APÓSTROFO NA CONSTRUÇÃO DA LISTA?
+
+Bem observado! Lembre-se de que a primeira coisa que vem depois  de  um  parêntese   `(`   é  normalmente  uma  função.  
+E esta  é  uma  característica  de  linguagens  baseadas  em  Lisp, onde  tudo  é  uma  lista,  inclusive  quando  aplicamos  uma função. 
+Sem o apóstrofo, a interpretação seria de que  1  seria compreendido como uma função, e seria aplicada aos demais argumentos.  
+Com  o  apóstrofo,  instruímos  que  a  lista  seja interpretada como uma simples lista, sem execução de função alguma.
+****
+
+Podemos até dar um nome a esta lista:
+
+```
+(def um-ate-5 '(1 2 3 4 5))
+;; #'user/um-ate-5
+
+(count um-ate-5)
+;; 5
+```
+
+O  `def`  nos permite dar um nome a alguma coisa e esta coisa pode, então, ser referenciada mais adiante. 
+É como a declaração de variáveis  em  outras  linguagens,  como  o  uso  de    `const`    em JavaScript.  
+E  aí  podemos  passar  o  valor  referenciado  com   `def`  para  uma  função,  como  fizemos  ao  aplicar  a  função   `count`   em `(count um-ate-5)` , que nos diz quantos elementos há em uma lista.  
+E  como  estamos  lidando  com  uma  sequência  de  números, podemos  usar  mais  uma  função  nativa  para  nos  ajudar  a  criar  a lista:
+
+```
+;; range é não-inclusivo, por isso o 16
+(def um-ate-15 (range 1 16))
