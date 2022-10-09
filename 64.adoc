@@ -1,0 +1,18 @@
+== CAPÍTULO 6 COMPOSIÇÃO DE FUNÇÕES E APLICAÇÃO PARCIAL DE FUNÇÕES
+No  capítulo  anterior,  vimos  o  poder  de  ter  funções  como
+cidadãs  de  primeira  classe.  Em  linguagens  que  possuem  este
+recurso,  podemos  usar  funções  como  argumentos,  assim  como
+fazemos com outros tipos de dados. Isso permite que façamos algo
+um  tanto  rebuscado,  como  combinar  várias  funções  em  uma  só,
+unindo  vários  comportamentos.  É  o  que  chamamos  de
+composição de funções.
+
+****
+Existe um epigrama famoso do Alan Perlis, que diz: _"É melhor
+ter 100 funções para operar em uma estrutura de dados, do que
+10 funções para operar em 10 estrutura de dados"_. Ele é muito
+referenciado  em  textos  e  apresentações  sobre  Programação
+Funcional,  e  Clojure  representa  muito  bem  este  espírito,
+sendo  a  composição  de  funções  uma  das  facilidades  da
+linguagem.
+****

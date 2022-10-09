@@ -1,0 +1,40 @@
+`:yuan`  para  `moeda` . E é uma aplicação parcial porque declaramos
+parte dos argumentos, não todos. A outra parte do argumento virá
+em algum outro momento, quando a função for, de fato, aplicada.
+
+Quando  aplicamos    `transacao-em-euro`    a    (`first
+transacoes`) , a função parcial  `transacao-em-euro`  é convertida
+na  aplicação  de   `transacao-em-outra-moeda` ,  que  recebe  dois
+argumentos, mas um deles já está definido,  `:euro` . O segundo é
+uma  transação,  que  é  passada  como  a  primeira  da  coleção  de
+transações.
+
+Da forma como está, estas funções podem ser utilizadas como
+parte de aplicações de  `map` :
+
+```
+(map transacao-em-yuan transacoes)
+;; ({:valor 70.950M, :tipo "despesa", :comentario "Almoço",
+;;   :moeda "¥", :data "19/11/2016"}
+;;  {:valor 5805.000M, :tipo "receita", :comentario "Bico",
+;;   :moeda "¥", :data "01/12/2016"}
+;;  {:valor 62.350M, :tipo "despesa",
+;;   :comentario "Livro de Clojure", :moeda "¥",
+;;   :data "03/12/2016"})
+
+(map transacao-em-euro transacoes)
+;; ({:valor 9.240M, :tipo "despesa", :comentario "Almoço",
+;;   :moeda "€", :data "19/11/2016"}
+;;  {:valor 756.000M, :tipo "receita", :comentario "Bico",
+;;   :moeda "€", :data "01/12/2016"}
+;;  {:valor 8.120M, :tipo "despesa",
+;;  :comentario "Livro de Clojure", :moeda "€",
+;;  :data "03/12/2016"})
+```
+
+Funciona bem porque, relembrando,  `map`  pega cada elemento
+de    `transacoes`    e  a  ele  aplica    `transacao-em-yuan`    ou
+  `transacao-em-euro`  ,  e  estas  funções  só  precisam  de  um
+argumento.
+
+Às  vezes,  podemos  utilizar  aplicação  parcial  de  funções  para

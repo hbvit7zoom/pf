@@ -1,0 +1,43 @@
+associa  a   `yuan` .  Não  é  necessário  que  o  mesmo  nome  seja
+repetido!
+
+No exemplo a seguir, aprofundamos o uso de desestruturação
+para fazer a associação de valores um nível adentro de  `cotacoes` :
+
+```
+(defn transacao-em-yuan [transacao]
+  (let [{{cotacao :cotacao simbolo :simbolo} :yuan} cotacoes]
+    (assoc transacao :valor (* cotacao (:valor transacao))
+                     :moeda simbolo)))
+
+(transacao-em-yuan (first transacoes))
+;; {:valor 70.950M, :tipo "despesa", :comentario "Almoço",
+;;  :moeda "¥", :data "19/11/2016"}
+```
+O  que  acontece  no   `let`   é  que  estamos  separando  o  mapa
+dentro  de   `:yuan`   da   `cotacoes` ,  e,  deste  mapa,  associamos  os
+valores  de   `:cotacao`   e   `:simbolo`   aos  nomes   `cotacao`   e
+ `simbolo` .
+
+Visando  a  possibilidade  de  reutilizar  a  função  também  para
+outras  moedas,  vamos  extrair  a  moeda  e  utilizá-la  como
+parâmetro. E já podemos incluir mais cotações na nossa tabela:
+
+```
+(def cotacoes
+  {:yuan {:cotacao 2.15M :simbolo "¥"}
+   :euro {:cotacao 0.28M :simbolo "€"}})
+
+(defn transacao-em-outra-moeda [moeda transacao]
+  (let [{{cotacao :cotacao simbolo :simbolo} moeda} cotacoes]
+    (assoc transacao :valor (* cotacao (:valor transacao))
+                     :moeda simbolo)))
+
+(transacao-em-outra-moeda :euro (first transacoes))
+;; {:valor 9.240M, :tipo "despesa", :comentario "Almoço",
+;;  :moeda "€", :data "19/11/2016"}
+
+(transacao-em-outra-moeda :euro (last transacoes))
+;; {:valor 8.120M, :tipo "despesa", :comentario "Livro de Clojure
+",
+```

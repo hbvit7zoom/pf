@@ -1,0 +1,42 @@
+```
+        (str (:moeda transacao) " -" (:valor transacao))
+        (str (:moeda transacao) " +" (:valor transacao))))
+
+(valor-sinalizado (first transacoes))
+;; "R$ -33.0"
+
+(valor-sinalizado (second transacoes))
+;; "R$ +2700.0"
+```
+
+Há  uma  certa  duplicação  em   `valor-sinalizado` .  Estamos
+repetindo a forma de pegar a moeda e o valor de uma transação.
+Clojure possui uma outra forma especial que nos ajuda a associar
+valores a nomes, que é a forma  `let` :
+
+```
+(defn valor-sinalizado [transacao]
+  (let [moeda (:moeda transacao)
+        valor (:valor transacao)]
+        (if (= (:tipo transacao) "despesa")
+          (str moeda " -" valor)
+          (str moeda " +" valor))))
+
+(valor-sinalizado (first transacoes))
+;; "R$ -33.0"
+
+(valor-sinalizado (second transacoes))
+;; "R$ +2700.0"
+```
+
+Neste exemplo,  `moeda`  e  `valor`  podem ser entendidas como
+constantes  locais.   `let`   permite  que  usemos   `moeda`   e   `valor` 
+dentro de todo o escopo que foi criado com  (`let` , até que seu  ) 
+apareça  para  encerrá-lo.  Ela  recebe  um  array  com  pares  de
+elementos,  nos  quais  os  pares  correspondem  ao  nome  que
+queremos, e cada nome é seguido do valor. Neste caso,  `moeda`  é o
+nome e seu par,  (`:moeda transacao`) , vira seu valor. O mesmo
+acontece com  `valor`  e  (`:valor transacao`) .
+
+Vamos aproveitar que reduzimos a redundância para expandir
+um  pouco  mais  o  conhecimento  de  como  manipular  mapas  em

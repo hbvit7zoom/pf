@@ -1,0 +1,41 @@
+```
+;;  :moeda "€", :data "03/12/2016"}
+
+(transacao-em-outra-moeda :yuan (first transacoes))
+;; {:valor 70.950M, :tipo "despesa", :comentario "Almoço",
+;;  :moeda "¥", :data "19/11/2016"}
+
+(transacao-em-outra-moeda :yuan (last transacoes))
+;; {:valor 62.350M, :tipo "despesa",
+;;  :comentario "Livro de Clojure", :moeda "¥",
+;;  :data "03/12/2016"}
+```
+Perceba  que  a  única  coisa  que  mudou  entre  as  aplicações  de
+funções  com  euro  ou  yuan  foi  a  moeda  ( `:euro`   ou   `:yuan` ).
+Podemos partir para o conceito do momento, aplicação parcial de
+funções,  para  comprimir  um  pouco  o  uso  de   `transacao-em-
+outra-moeda` .  A  aplicação  parcial  de  uma  função  significa  que
+pegamos  uma  função  que  tem  vários  argumentos  e  criamos  uma
+nova,  baseada  nela,  mas  que  recebe  menos  argumentos.  Por
+exemplo:
+
+```
+(def transacao-em-euro (partial transacao-em-outra-moeda :euro))
+
+(def transacao-em-yuan (partial transacao-em-outra-moeda :yuan))
+
+(transacao-em-euro (first transacoes))
+;; {:valor 9.240M, :tipo "despesa", :comentario "Almoço",
+;;  :moeda "€", :data "19/11/2016"}
+
+(transacao-em-yuan (first transacoes))
+;; {:valor 70.950M, :tipo "despesa", :comentario "Almoço",
+;;  :moeda "¥", :data "19/11/2016"}
+```
+
+O que aconteceu nas primeiras linhas do exemplo anterior foi
+que  demos  um  nome  à  aplicação  parcial  de  uma  função.  No
+primeiro  caso,  o  nome  é   `transacao-em-euro`   e  corresponde  à
+aplicação  parcial  de   `transacao-em-outra-moeda`   já  recebendo
+um  dos  dois  argumentos,   `:euro`   para  o  argumento   `moeda` .  A
+mesma  coisa  acontece  com    `transacao-em-yuan`  ,  mas  com

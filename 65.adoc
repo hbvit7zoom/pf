@@ -1,0 +1,25 @@
+No nosso domínio, que tal um exemplo em que geremos uma
+versão  em  texto  do  resumo  de  uma  transação?  Imagine  uma
+função   `texto-resumo`   que  faz  com  que  uma  transação  vire  o
+seguinte texto:
+
+```
+(texto-resumo uma-transacao-qualquer)
+;; "01/12/2016 => R$ +2700.0"
+```
+
+É  esperado  que   `texto-resumo`   pegue  a  data,  a  moeda  e  o
+valor  de  uma  despesa  e  os  exiba  com  uma  seta  entre  eles,  com  o
+valor  precedido  por  um  símbolo  que  indica  se  a  transação  é
+despesa ou receita. Vamos precisar da moeda na nossa coleção de
+transações, então segue uma nova definição de transações:
+
+```
+(def transacoes
+  [{:valor 33.0 :tipo "despesa" :comentario "Almoço"
+    :moeda "R$" :data "19/11/2016"}
+   {:valor 2700.0 :tipo "receita" :comentario "Bico"
+    :moeda "R$" :data "01/12/2016"}
+   {:valor 29.0 :tipo "despesa" :comentario "Livro de Clojure"
+    :moeda "R$" :data "03/12/2016"}])
+```
