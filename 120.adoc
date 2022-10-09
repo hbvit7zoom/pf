@@ -1,0 +1,10 @@
+preguiça.
+
+Na  parte  seguinte,  construiremos  dois  projetos:  uma
+ferramenta, bem simples, de linha de comando para conversão de
+moedas; e um serviço, um tanto mais complexo, usando o domínio
+de finanças pessoais que temos utilizado até aqui. A ideia é que este
+último projeto nos permita manter e manipular transações, capaz
+de receber e responder requisições HTTP. Microsserviços, alguém?
+100  8.3 CONCLUSÃO
+

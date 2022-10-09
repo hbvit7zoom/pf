@@ -1,0 +1,36 @@
+Uma  sequência  preguiçosa  permite  que  seus  valores  sejam
+computados  quando  necessário,  criando  um  cenário  onde  a
+sequência  existe,  mas  os  dados  em  si  ainda  não  existem  em
+memória.  Uma  sequência  preguiçosa  não  é  necessariamente  uma
+estrutura  de  dados,  mas  sim  um  objeto  que  entende  como
+sequências  funcionam,  sendo  capaz  de  computar  um  próximo
+elemento  aplicando  alguma  função.  E,  sendo  assim,  este  tipo  de
+sequência  permite  que  tenhamos  sequências  infinitas.  Sim,
+infinitas.  Isso  quer  dizer  que  não  sabemos  quando,  nem  se,  a
+sequência terá um fim. E seus dados são consumidos até que não
+precisemos mais deles.
+
+Um  exemplo  de  uso  de  uma  sequência  infinita  é  a  leitura  de
+arquivos de texto com a função  `line-seq` .   `line-seq`   permite
+que processemos uma linha de cada vez, sem que o arquivo inteiro
+seja todo ele carregado em memória. Ela é uma função que retorna
+uma sequência preguiçosa de Strings.
+
+No nosso domínio, podemos usar uma sequência infinita para
+gerar quantas transações forem necessárias para casos de teste, por
+exemplo. Ou fazer a paginação de resultados como um _feed_ como o
+Twitter ou o Facebook fazem: parece que os dados são infinitos.
+
+Digamos que, para propósito de testes de relatórios, queremos
+várias  transações.  Muitas,  umas  50.  Nem  o  valor  nem  o  tipo
+importam. Primeiro, para gerar valores aleatórios, vejamos o que
+podemos fazer:
+
+```
+;; rand-nth retorna um valor aleatório dentro de uma coleção
+(rand-nth ["despesa" "receita"])
+;; "despesa"
+;; seu resultado pode ser diferente
+
+;; rand-int retorna um número inteiro aleatório entre 0 e
+```

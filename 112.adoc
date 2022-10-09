@@ -1,0 +1,46 @@
+```
+;; o argumento, sem incluir o argumento nas possibilidades
+;; daí multiplicamos por 0.01M para ter um número real com
+;; duas casas decimais
+(* (rand-int 100001) 0.01M)
+;; 243.85M
+;; seu resultado pode ser diferente
+```
+
+Agora  que  conseguimos  gerar  valores  aleatórios  e  deixar  o
+acaso  escolher  se  a  transação  será  uma  receita  ou  uma  despesa,
+vejamos como gerar uma transação aleatória:
+
+```
+(defn transacao-aleatoria []
+  {:valor (* (rand-int 100001) 0.01M)
+   :tipo (rand-nth ["despesa" "receita"])})
+
+(transacao-aleatoria)
+;; {:valor 156.47M, :tipo "receita"}
+;; seu resultado pode ser diferente
+```
+
+Legal. Agora podemos fazer uso da ideia de estruturas de dados
+infinitas,  sendo  aqui  uma  sequência.  Em  uma  sequência  infinita,
+não sabemos seu tamanho, nem temos certeza de onde ela acaba,
+afinal, ela é (surpresa!) infinita. Mas não significa que ocuparemos
+uma  quantidade  absurda  de  memória  nos  nossos  computadores.
+Vamos  pegar  algumas  transações  aleatórias  para  começar  a
+brincadeira:
+
+```
+;; repeatedly produz uma sequência preguiçosa, cujos elementos são
+
+;; chamadas à função que lhe é passada como argumento
+(repeatedly 3 transacao-aleatoria)
+;; ... uma lista com 3 transações aleatórias
+
+(class (repeatedly 3 transacao-aleatoria))
+;; clojure.lang.LazySeq
+
+;; quando não dizemos quantos elementos queremos, repeatedly cria
+;; uma sequência infinita
+(def transacoes-aleatorias (repeatedly transacao-aleatoria))
+;; #'user/transacoes-aleatorias
+```

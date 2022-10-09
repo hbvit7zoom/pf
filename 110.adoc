@@ -1,0 +1,39 @@
+```
+;; e informar que estamos fazendo isso
+(defn valor-sinalizado [transacao]
+  (prn "Pegando o valor e a moeda da transação:" transacao)
+  (let [moeda (:moeda transacao "R$")
+        valor (:valor transacao)]
+        (if (= (:tipo transacao) "despesa")
+          (str moeda " -" valor)
+          (str moeda " +" valor))))
+
+(def transacao-aleatoria {:valor 9.0})
+
+(valor-sinalizado transacao-aleatoria)
+;; "Pegando o valor e a moeda da transação:" {:valor 9.0}
+;; "R$ +9.0"
+
+(def valores (map valor-sinalizado transacoes))
+;; #'user/valores
+
+valores
+;; "Pegando o valor e a moeda da transação:" {:valor 33.0, ...
+;; "Pegando o valor e a moeda da transação:" {:valor 2700.0, ...
+;; "Pegando o valor e a moeda da transação:" {:valor 29.0, ...
+;; "Pegando o valor e a moeda da transação:" {:valor 45M, ...
+;; ("R$ -33.0" "R$ +2700.0" "R$ -29.0" "R$ -45")
+```
+
+Aqui  aplicamos   prn   para  ver  quando,  de  fato,  a  função  for
+aplicada.  Daí,  com    (`valor-sinalizado`  `transacao-
+aleatoria`)  ,  a  função  é  aplicada  a  só  uma  transação,  e  a
+mensagem  de  texto  é  exibida.  Sendo  assim,  não  há  sequências
+sendo  geradas  ou  processadas.  Já  com   `map` ,  não  vemos  nada
+sendo  impresso.  As  mensagens  de  texto  só  aparecem  quando
+queremos  imprimir  o  valor  de   `valores` .  Isto  acontece  porque
+  `map`    produz  sequências  preguiçosas,  que  faz  com  que  seus
+elementos  só  sejam  processados  quando  a  sequência  for,  de  fato,
+consumida.
+
+=== 8.1  SEQUÊNCIAS  PREGUIÇOSAS  E  LISTAS INFINITAS DE TRANSAÇÕES

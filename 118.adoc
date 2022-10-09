@@ -1,0 +1,43 @@
+```
+    ;; vamos embalar a parte recursiva na macro lazy-seq
+    (lazy-seq
+      (if (= quantas-ja-foram quantidade)
+        transacoes
+        (aleatorias quantidade (inc quantas-ja-foram)
+                               (cons (transacao-aleatoria)
+                                     transacoes))))))
+
+(time (class (aleatorias 4)))
+;; "Elapsed time: 0.03271 msecs"
+;; clojure.lang.LazySeq
+
+(time (class (aleatorias 900000)))
+;; "Elapsed time: 0.029649 msecs"
+;; clojure.lang.LazySeq
+```
+
+O  retorno  de    `class`    já  nos  diz  que  agora  temos  uma
+sequência  preguiçosa!  E   `time`   mostra  como  é  insignificante  a
+diferença  de  tempo  entre  pegar  a  classe  de  uma  sequência
+preguiçosa  grande  e  de  uma  pequena.  A  novidade  na  definição
+anterior  é  a  presença  da  macro   `lazy-seq` ,  que  pega  o  que  tem
+dentro  dela  e  embala  numa  função,  que  se  responsabilizará  por
+criar uma sequência preguiçosa para nós. Neste caso,  (`if ...`) .
+
+Mas a sequência ainda não é infinita, já que nós definimos uma
+quantidade  de  elementos  quando  aplicamos  a  função.  E  que  tal
+criarmos uma infinita? Assim:
+
+```
+(defn aleatorias []
+  (lazy-seq
+    (cons (transacao-aleatoria) (aleatorias))))
+
+(time (class (take 4 (aleatorias))))
+;; "Elapsed time: 0.170615 msecs"
+;; clojure.lang.LazySeq
+
+(time (class (take 900000 (aleatorias))))
+;; "Elapsed time: 0.046173 msecs"
+;; clojure.lang.LazySeq
+```

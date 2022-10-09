@@ -1,0 +1,28 @@
+== CAPÍTULO 8 PREGUIÇA
+Para  concluir  esta  parte  do  livro,  um  último  tópico  bem
+comum  na  Programação  Funcional:  preguiça,  do  inglês  laziness.
+Preguiça  não  é  exclusividade  do  mundo  funcional,  sendo  algo
+comum em diversas linguagens de programação. Acontece que se
+torna ainda mais disponível e valiosa nas funcionais. Haskell, por
+exemplo,  é  uma  linguagem  onde  preguiça  é  o  padrão.  Qualquer
+trecho  de  código  só  é  executado  quando  realmente  necessário.
+Clojure,  por  sua  vez,  não  é  completamente  preguiçosa.  Está  um
+pouco mais para Java, sendo pouco preguiçosa.
+
+Para  entrar  aos  poucos  no  tema,  vejamos  preguiça  em  Java.
+Considere o seguinte trecho de código:
+
+```
+if (sedeDaCopaDoMundo != null &&
+      sedeDaCopaDoMundo.primeiraVezQueSedia()) {
+  // ...
+}
+```
+
+Se  o  valor  de   `sedeDaCopaDoMundo`   for  nulo,  o  trecho  que
+chama o método  `primeiraVezQueSedia`()  não é executado. Isso
+é  o  que  é  chamado  de  avaliação  preguiçosa,  do  inglês  _lazy
+evaluation_.  Quer  dizer  que  uma  parte  do  código  só  é  executada
+quando  for  mesmo  necessária.  No  exemplo  anterior,  a  segunda
+parte  do    if    só  é  executada  (ou  avaliada)  quando
+ `sedeDaCopaDoMundo`  for diferente de nulo.

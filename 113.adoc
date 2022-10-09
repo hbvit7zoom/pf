@@ -1,0 +1,39 @@
+```
+;; uma transação aleatória
+(take 1 transacoes-aleatorias)
+;; ({:valor 8.53M, :tipo "despesa"})
+;; seu resultado pode ser diferente
+
+;; duas transações aleatórias
+;; perceba que a primeira transação é exatamente igual à que foi
+;; retornada no caso anterior
+(take 2 transacoes-aleatorias)
+;; ({:valor 8.53M, :tipo "despesa"}
+;; {:valor 154.85M, :tipo "despesa"})
+;; seu resultado pode ser diferente
+
+;; e aqui as 2 primeiras também são iguais às anteriores
+(take 5 transacoes-aleatorias)
+;; ({:valor 8.53M, :tipo "despesa"}
+;; {:valor 154.85M, :tipo "despesa"}
+;; {:valor 171.96M, :tipo "receita"}
+;; {:valor 460.30M, :tipo "despesa"}
+;; {:valor 942.23M, :tipo "receita"})
+;; seu resultado pode ser diferente
+```
+
+`repeatedly`    é  uma  função  que  constrói  uma  sequência
+preguiçosa, às vezes infinita. Se você não disser quantas repetições
+haverá, ela será infinita. Os elementos da sequência são chamadas à
+função  que  é  passada  como  argumento.  Para  que   `repeatedly` 
+funcione,  a  função  que  lhe  é  passada,  neste  caso   `transacao-
+aleatoria` , não deve receber argumentos.  `repeatedly` , esta sim,
+pode  receber  um  argumento,  opcional,  que  é  a  quantidade  de
+elementos.  No  exemplo  anterior,  vimos  primeiro   `repeatedly` 
+gerando  uma  sequência  de  3  elementos.  Logo  em  seguida,  vimos
+que, sem uma quantidade definida, temos uma sequência infinita,
+cujos elementos são gerados quando utilizamos  `take` .
+
+Vejamos  o  que  acontece  quando  pegamos  os  elementos  de
+ `transacoes-aleatorias`  com  `take` : primeiro pegamos um só
+elemento da sequência ( `take 1` ), e é aí que ele será computado,
