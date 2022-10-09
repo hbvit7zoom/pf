@@ -1,0 +1,42 @@
+cenário onde há processamento concorrente, é muito difícil
+acompanhar  se  houve  mudança  em  um  dado  e  qual
+processo realizou a mudança;
+* Compartilhar  dados  que  não  mudam  é  fácil,  ao  ponto  de
+que  podemos  aproveitar  dados  antigos  em  estruturas  que
+representam novos dados.
+
+Esta  última  característica  é  bem  interessante  de  ver  com
+exemplos. Vejamos a lista de países membros do Mercosul:
+
+```
+(def membros-fundadores
+  (list "Argentina" "Brasil" "Paraguai" "Uruguai"))
+
+membros-fundadores
+;; ("Argentina" "Brasil" "Paraguai" "Uruguai")
+```
+
+A Venezuela passou a fazer parte do grupo em julho de 2012:
+
+```
+(def membros-plenos (cons "Venezuela" membros-fundadores))
+
+membros-plenos
+;; ("Venezuela" "Argentina" "Brasil" "Paraguai" "Uruguai")
+```
+
+`cons`    é  uma  função  que  permite  que  adicionemos  um
+elemento a uma coleção. Neste caso,  `"Venezuela"`  é incluída na
+primeira posição da lista. Daí, vemos que  `membros-plenos`  é uma
+nova  lista,  com  5  elementos.  Mas  a  diferença  é  só  o  primeiro
+elemento. Será que, se tirarmos  `"Venezuela"`  da lista  `membros-
+plenos` , o resultado é igual a  `membros-fundadores` ?
+
+```
+(rest membros-plenos)
+;; ("Argentina" "Brasil" "Paraguai" "Uruguai")
+```
+
+`rest`  é uma função que pega uma coleção, ignora o primeiro
+elemento,  e  retorna  uma  nova  coleção  contendo  o  resto.  Neste
+caso, tirou  `"Venezuela"`  e retornou o resto.

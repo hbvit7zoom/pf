@@ -1,0 +1,40 @@
+```
+(def transacoes @registros)
+transacoes
+;; ({:valor 45M, :tipo "despesa", :comentario "Jogo no Steam",
+;;   :moeda "R$", :data "26/12/2016"}
+;;  {:valor 33M, :tipo "despesa", :comentario "Almoço",
+;;   :moeda "R$", :data "19/11/2016"}
+;;  {:valor 2700M, :tipo "receita", :comentario "Bico",
+;;   :moeda "R$", :data "01/12/2016"}
+;;  {:valor 29M, :tipo "despesa", :comentario "Livro de Clojure",
+;;   :moeda "R$", :data "03/12/2016"})
+```
+
+Primeiro,  criamos  uma  função  para  abstrair  a  inclusão  de
+dados  no  átomo,   `registrar` .  Daí  nós  a  utilizamos  duas  vezes
+para incluir duas transações, uma de cada vez, e elas são incluídas
+na  cabeça  da  lista.  Por  fim,  associamos  o  átomo  a  um  nome,
+ `transacoes` ,  sobrescrevendo  ao  que   `transacoes`   se  referia
+antes de associarmos o átomo a este nome. Daí podemos reutilizá-
+lo nos exemplos seguintes.
+
+=== 7.3 IMUTABILIDADE NO NOSSO DOMÍNIO
+
+Este  cenário,  onde  há  um  estímulo  muito  forte  para  que  não
+mudemos  estado  algum,  faz  com  que  repensemos  como  escrever
+nossos  programas.  Um  exemplo  de  grande  impacto  é  na
+manipulação de coleções, na extração de informações derivadas do
+processamento  de  seus  elementos.  Por  exemplo,  para  ver  o  saldo
+da  nossa  conta.  O  que  precisa  ser  feito  é  somar  as  receitas  e
+subtrair  as  despesas.  Em  um  processo  imperativo  tradicional,  em
+Java antes da versão 8, seria algo assim:
+
+```
+public Double saldoDeFormaImperativa(List<Transacao> transacoes) 
+{
+    Double saldo = 0.0;
+
+    for (Transacao t : transacoes) {
+        if (t.ehDespesa()) {
+```

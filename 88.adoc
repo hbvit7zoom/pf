@@ -1,0 +1,49 @@
+```
+(defn transacao-em-yuan [transacao]
+  (let [{{cotacao :cotacao simbolo :simbolo} :yuan} cotacoes]
+    (assoc transacao :valor (* cotacao (:valor transacao))
+                     :moeda simbolo)))
+
+(transacao-em-yuan (first transacoes))
+;; {:valor 70.950M, :tipo "despesa", :comentario "Almoço",
+;;  :moeda "¥", :data "19/11/2016"}
+```
+
+`assoc`    gera  um  novo  mapa  com  os  novos  valores,  e  a
+transação original permanece intocada.
+
+Outra consequência da imutabilidade é que precisamos refazer
+referências  a  valores  que  temos.  Por  exemplo,  vejamos  a  lista  de
+transações que temos:
+
+```
+(def transacoes
+  [{:valor 33M :tipo "despesa" :comentario "Almoço"
+    :moeda "R$" :data "19/11/2016"}
+   {:valor 2700M :tipo "receita" :comentario "Bico"
+    :moeda "R$" :data "01/12/2016"}
+   {:valor 29M :tipo "despesa" :comentario "Livro de Clojure"
+    :moeda "R$" :data "03/12/2016"}])
+```
+
+`transacoes`   é  uma  referência  a  uma  lista  de  mapas.  Se
+precisarmos colocar mais um elemento nesta lista, vamos precisar
+criar uma nova referência, com o novo valor e os anteriores:
+
+```
+(def transacoes
+  [{:valor 33M :tipo "despesa" :comentario "Almoço"
+    :moeda "R$" :data "19/11/2016"}
+   {:valor 2700M :tipo "receita" :comentario "Bico"
+    :moeda "R$" :data "01/12/2016"}
+   {:valor 29M :tipo "despesa" :comentario "Livro de Clojure"
+    :moeda "R$" :data "03/12/2016"}
+   {:valor 45M :tipo "despesa" :comentario "Jogo no Steam"
+    :moeda "R$" :data "26/12/2016"}])
+```
+
+Ou ainda:
+
+```
+(def transacoes
+```

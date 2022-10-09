@@ -1,0 +1,37 @@
+```
+texto
+    (let [conversao (first dicionario)]
+      (escrita-hacker (clojure.string/replace texto
+                                              (:de conversao)
+                                              (:para conversao))
+                      (rest dicionario)))))
+
+(escrita-hacker "alameda" de-para)
+;; "4l4m3d4"
+```
+
+Sempre  que  aplicarmos   `escrita-hacker`   a   `"alameda"` ,
+sempre  teremos  o  mesmo  resultado:   `"4l4m3d4"` .  Perceba  que
+ `escrita-hacker`   é  uma  função  recursiva,  já  que  chama  a  si
+própria.  Sei  que  está  rolando  uma  enorme  ansiedade,  mas  já  já
+falaremos de recursão!
+
+Uma  função  pura  não  faz  operações  que  mudam  o  estado  de
+alguma coisa. Exemplos de mudança de estado são:
+
+* Alterar valores dentro de um mapa;
+* Alterar uma String;
+* Escrever em um arquivo;
+* Imprimir algo na tela; e
+* Inserir um registro no banco de dados.
+
+Toda  mudança  de  estado  é  um  efeito  colateral.  E  isso  não  é
+bem-vindo  em  nossos  programas  porque  reduz  a  previsibilidade
+dos resultados esperados, o que acaba impactando negativamente
+na robustez dos nossos programas.
+
+E também são consideradas impuras as funções que, para gerar
+algum resultado, executam processos de ler um arquivo, consultar
+um banco de dados ou obter um recurso da internet. Mesmo sendo
+processos  de  leitura,  por  saírem  de  dentro  do  domínio  do
+programa, não geram resultados previsíveis, pois o arquivo, banco

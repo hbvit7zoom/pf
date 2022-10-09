@@ -1,0 +1,36 @@
+```
+            saldo = saldo - t.getValor();
+        } else {
+            saldo = saldo + t.getValor();
+        }
+    }
+
+    return saldo;
+}
+```
+
+Aqui o valor de  `saldo`   é  modificado  a  cada  passagem  pelos
+itens  da  coleção   `transacoes` .  Esta  é  a  forma  imperativa  de
+realizar  o  processamento  em  coleções.  Trabalhar  com
+imutabilidade exige que façamos tal processamento de uma forma
+diferente, mas já muito conhecida, por meio da recursão.
+
+=== 7.4 RECURSÃO
+
+O  exemplo  anterior  pode  até  ser  feito  com  bastante
+similaridade em Clojure, fazendo uso de átomos. Mas estamos aqui
+para aprender as coisas do jeito funcional, certo? E aqui a onda é
+aplicar recursão para um problema destes. Uma solução recursiva
+deve:
+
+1.  iniciar o saldo com zero;
+2.  encerrar  o  processo  quando  não  existirem  mais  elementos
+sobre os quais iterar, e retornar o saldo;
+3.  para  cada  iteração,  aumentar  ou  diminuir  o  saldo  com  o
+valor da transação; e
+4.  reiniciar  o  processo,  desta  vez  com  o  saldo  sendo  o  novo
+valor  calculado  na  etapa  anterior  e  as  transações  sem  a
+transação utilizada na etapa anterior.
+
+Até  aqui  usamos    (`first  transacoes`)    com  bastante
+frequência  para  pegar  o  primeiro  elemento  de  uma  coleção,  e

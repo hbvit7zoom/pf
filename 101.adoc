@@ -1,0 +1,35 @@
+e  que  cada  vez  que  a  aplicação  acontece,  novos  dados  são
+colocados  na  pilha.  Com  duas  transações,  as  informações  para  a
+execução  de    `saldo`    são  empilhadas  duas  vezes,  mas  as
+informações  da  primeira  execução  de   saldo   precisa  esperar  a
+segunda  execução  terminar.  Com  duzentas  transações,  há  o
+empilhamento duzentas vezes; quando a ducentésima aplicação de
+ `saldo`   acabar,  os  resultados  vão  sendo  retornados  e  os  dados
+desempilhados. Mas a partir de um alto número de transações, a
+pilha estoura. Como nada vai sendo desempilhado, só empilhado,
+uma hora atingimos o limite.
+
+_Tail  Call  Optimization_  (TCO)  é  uma  técnica  que  busca
+otimizar a alocação de dados na pilha de execução quando a última
+instrução em uma função é a aplicação de uma outra função. Por
+estar na última posição de instruções de uma função, diz-se estar
+na  cauda,  traseira  ou  rabeira,  termo  utilizado  lá  na  minha  terra,
+que são traduções de tail. A última instrução é chamada de _tail call_.
+E a ideia da TCO é evitar empilhar dados de forma desnecessária.
+Em vez de colocar novos dados na pilha de execução, a estrutura já
+criada é reaproveitada.
+
+_Tail  Recursion  Elimination_  (TRE)  é  uma  especialização  de
+TCO.  Ela  é  aplicada  quando  a  última  instrução  é  a  aplicação  da
+mesma função, ou seja, quando há recursão na última instrução de
+uma  função.  Da  forma  como   `saldo`   está,  não  há  _tail  recursion_
+porque  a  última  instrução  não  é  a  aplicação  de   `saldo` .  Vamos
+reescrever  `saldo`  para que haja tail recursion:
+
+```
+;; nova versão de saldo, com tail recursion
+(defn saldo
+  ([transacoes] (saldo 0 transacoes))
+  ([acumulado transacoes]
+   (if (empty? transacoes)
+```

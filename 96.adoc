@@ -1,0 +1,46 @@
+`acumulado...`   e   `acumulado`  .  Precisamos  escrever    prn    e
+  `saldo-acumulado`    de  modo  que  elas  sejam  consideradas
+aplicadas dentro de um bloco só. Para isso, podemos contar com a
+função  `do` . Assim:
+
+```
+(defn saldo-acumulado [acumulado transacoes]
+  (if-let [transacao (first transacoes)]
+    (do
+      (prn "Começou saldo-acumulado. Saldo até agora:" acumulado)
+      (saldo-acumulado (calcular acumulado transacao)
+                       (rest transacoes)))
+    acumulado))
+
+(saldo-acumulado 0 transacoes)
+;; "Começou saldo-acumulado. Saldo até agora:" 0
+;; "Começou saldo-acumulado. Saldo até agora:" -45M
+;; "Começou saldo-acumulado. Saldo até agora:" -78M
+;; "Começou saldo-acumulado. Saldo até agora:" 2622M
+;; 2593M
+```
+
+Também  precisaremos  usar   `do`   no  segundo  bloco  do   `if-
+let` :
+
+```
+(defn saldo-acumulado [acumulado transacoes]
+  (if-let [transacao (first transacoes)]
+    (do
+      (prn "Começou saldo-acumulado. Saldo até agora:" acumulado)
+      (saldo-acumulado (calcular acumulado transacao)
+                       (rest transacoes)))
+    (do
+      (prn "Processo encerrado. Saldo final:" acumulado)
+      acumulado)))
+
+(saldo-acumulado 0 transacoes)
+;; "Começou saldo-acumulado. Saldo até agora:" 0
+;; "Começou saldo-acumulado. Saldo até agora:" -45M
+;; "Começou saldo-acumulado. Saldo até agora:" -78M
+;; "Começou saldo-acumulado. Saldo até agora:" 2622M
+;; "Processo encerrado. Saldo final:" 2593M
+;; 2593M
+```
+
+Agora que conseguimos colocar os  `prn` , vamos ver uns outros

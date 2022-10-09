@@ -1,0 +1,46 @@
+```
+;; 2593M
+
+;; e qual seria o resultado com uma lista sem transações?
+(saldo-acumulado 0 ())
+;; 0
+
+;; ou só os dois primeiros elementos?
+(saldo-acumulado 0 (take 2 transacoes))
+;; -78M
+```
+
+Podemos  extrair  o  cálculo  para  uma  função  para  simplificar
+um pouco a leitura de  `saldo-acumulado` :
+
+```
+(defn calcular [acumulado transacao]
+  (let [valor (:valor transacao)]
+    (if (despesa? transacao)
+      (- acumulado valor)
+      (+ acumulado valor))))
+
+(defn saldo-acumulado [acumulado transacoes]
+  (if-let [transacao (first transacoes)]
+    (saldo-acumulado (calcular acumulado transacao)
+                     (rest transacoes))
+    acumulado))
+```
+
+Vamos ver com detalhes o que acontece em cada etapa? Para
+isso  utilizamos   `prn` ,  que  é  uma  função  que  recebe  Strings  e  as
+imprime na tela. Assim, conseguimos ver um passo a passo do que
+acontece:
+
+```
+(defn saldo-acumulado [acumulado transacoes]
+  (if-let [transacao (first transacoes)]
+    (prn "Começou saldo-acumulado. Saldo até agora:" acumulado)
+    (saldo-acumulado (calcular acumulado transacao)
+                     (rest transacoes))
+    acumulado))
+;; CompilerException java.lang.IllegalArgumentException: if-let...
+```
+
+Ops!  Deu  erro.  Isso  quer  dizer  que   `if-let`   espera  1  ou  2
+blocos,  e  acabamos  passando  3:    (`prn...`  ,    (`saldo-`

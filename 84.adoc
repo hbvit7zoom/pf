@@ -1,0 +1,44 @@
+```
+(let [{{cotacao :cotacao simbolo :simbolo} moeda} cotacoes]
+    (assoc transacao :valor (* cotacao (:valor transacao))
+                     :moeda simbolo)))
+```
+
+Mas acabamos quebrando os códigos que aplicavam a função,
+como    (`transacao-em-outra-moeda`  `:euro`  (`first
+transacoes`)) , porque só passam dois argumentos. Para resolver
+isso, podemos fazer com que  `transacao-em-outra-moeda`  seja a
+aplicação  parcial  de  uma  outra  função  que  recebe  a  tabela  de
+conversão padrão como argumento:
+
+```
+(defn transacao-convertida [cotacoes moeda transacao]
+  ;; aqui no `let` tem uma desestruturação,
+  ;; que falamos no capítulo anterior
+  (let [{{cotacao :cotacao simbolo :simbolo} moeda} cotacoes]
+    (assoc transacao :valor (* cotacao (:valor transacao))
+                     :moeda simbolo)))
+
+(def transacao-em-outra-moeda
+  (partial transacao-convertida cotacoes))
+```
+
+Uma outra forma de lidarmos com este problema é fazer uso
+de um recurso de Clojure chamado aridade múltipla, que é quando
+temos uma função que se comporta de formas diferentes de acordo
+com  a  quantidade  de  argumentos  que  recebe.  Assim,  podemos
+fazer  com  que  a  função   transacao-em-outra-moeda ,  quando
+chamada  com  2  argumentos,  chame  a  si  mesma  com  a  tabela  de
+conversão padrão. Assim:
+
+```
+(defn transacao-em-outra-moeda
+  ([cotacoes moeda transacao]
+    (let [{{cotacao :cotacao simbolo :simbolo} moeda} cotacoes]
+      (assoc transacao :valor (* cotacao (:valor transacao))
+                       :moeda simbolo)))
+  ([moeda transacao]
+    (transacao-em-outra-moeda cotacoes moeda transacao)))
+```
+
+Ainda temos a tabela padrão sendo utilizada, mas ela não está

@@ -1,0 +1,42 @@
+```
+;; 2593M
+```
+
+Legal.  Já  dá  para  ter  uma  clareza  do  que  acontece.  Vamos
+remover as chamadas a  `prn`  e a  `do` :
+
+```
+(defn saldo-acumulado [acumulado transacoes]
+  (if-let [transacao (first transacoes)]
+    (saldo-acumulado (calcular acumulado transacao)
+                     (rest transacoes))
+    acumulado))
+```
+
+É normal criarmos uma função que abstrai o início da iteração,
+para que não precisemos chamar  `saldo-acumulado`  com  `0` :
+
+```
+(defn saldo [transacoes]
+  (saldo-acumulado 0 transacoes))
+
+(saldo transacoes)
+;; 2593M
+```
+
+E  agora  podemos  utilizar  um  outro  recurso  da  linguagem:  a
+sobrecarga de aridade. Algumas linguagens de programação, como
+Java e Ruby, permitem que funções sejam definidas com o mesmo
+nome,  desde  que  com  diferenças  nos  argumentos  que  recebe.
+Clojure, por sua vez, apenas permite que um nome seja utilizado
+por  uma  só  função.  Você  pode  até  criar  várias  funções  com  um
+mesmo nome e seu programa vai rodar, mas sempre que uma nova
+definição de função surge, a referência para a definição anterior é
+perdida.
+
+Vale  lembrar  que  aridade  corresponde  ao  número  de
+argumentos  que  uma  função  recebe.  Nos  exemplos  até  aqui,
+ `saldo-acumulado`   tem  aridade  igual  a  dois,  já  que  recebe  dois
+argumentos:  `acumulado`   e   `transacoes` .  Com  a  sobrecarga  de
+aridade, podemos ter uma só função  `saldo` , que recebe uma lista
+de transações, ou um saldo e uma lista de transações:

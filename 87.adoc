@@ -1,0 +1,34 @@
+Agora nos resta comparar as coleções:
+
+```
+(identical? (rest membros-plenos)
+            membros-fundadores)
+;; true
+```
+
+`identical?`   é  uma  função  que  compara  2  elementos  para
+saber se são os mesmos objetos. E nos ajuda a compreender que,
+aqui,  a  estrutura  de  dados  inicial  foi  aproveitada,  graças  à
+imutabilidade. Como Clojure sabe que o dado não vai mudar, ela
+se  aproveita  disso  para  a  construção  de  novos  dados.  E  este
+reaproveitamento dos dados permite menor consumo de memória.
+
+*Pureza e imutabilidade na Programação Orientada a Objetos*
+
+Nem  pureza,  nem  imutabilidade  são  exclusividades  de
+linguagens de Programação Funcionais. Na verdade, são princípios
+que você pode levar para seus programas em linguagens orientadas
+a  objeto.  POO  possui  como  uma  das  suas  características  prover
+ferramentas para a modelagem de conceitos e o estado de objetos,
+e  o  gerenciamento  deste  estado  normalmente  acontece  de  uma
+forma  imperativa.  Quer  dizer,  sempre  descrevemos  um  passo  a
+passo  de  como  mudar  o  estado  das  coisas.  Em  POO,  não
+precisamos  tratar  estado  sempre  de  forma  imperativa,  e  assim
+podemos muito bem trazer pureza e imutabilidade para linguagens
+como Java, C++, Python, Ruby.
+
+*Átomos e mutações*
+
+Quando  convertemos  uma  transação  para  uma  outra  moeda,
+por exemplo, yuan, criamos um novo mapa, em vez de modificar o
+atual. Por exemplo:
