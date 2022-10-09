@@ -1,0 +1,47 @@
+```
+     (recur quantidade (inc quantas-ja-foram)
+                       (cons (transacao-aleatoria) transacoes)))))
+
+;; poucas transações
+(aleatorias 4)
+;; ({:valor 955.90M, :tipo "receita"}
+;;  {:valor 589.52M, :tipo "despesa"}
+;;  {:valor 808.02M, :tipo "despesa"}
+;;  {:valor 582.80M, :tipo "despesa"})
+;; seu resultado pode ser diferente
+
+;; muitas transações
+(aleatorias 900000)
+;; ...uma sequência com 900000 transações...
+
+(class (aleatorias 4))
+;; clojure.lang.Cons
+
+(class (aleatorias 900000))
+;; clojure.lang.Cons
+```
+
+Funcionou. Mas ainda não criamos uma sequência preguiçosa.
+Perceba  que   (`class`  (`aleatorias  4`))   demora  menos  que
+ (`class` (`aleatorias 900000`)) . Vejamos como medir:
+
+```
+(time (class (aleatorias 4)))
+;; "Elapsed time: 0.054824 msecs"
+;; clojure.lang.Cons
+
+(time (class (aleatorias 900000)))
+;; "Elapsed time: 917.45872 msecs"
+;; clojure.lang.Cons
+```
+
+Como não é uma sequência preguiçosa, todos os elementos são
+criados  antes  que  saibamos  o  tipo  do  retorno  de   `aleatorias` .
+Vamos torná-la preguiçosa:
+
+```
+(defn aleatorias
+  ([quantidade]
+    (aleatorias quantidade 1 (list (transacao-aleatoria))))
+  ([quantidade quantas-ja-foram transacoes]
+```

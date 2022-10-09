@@ -1,0 +1,38 @@
+`repeatedly`    normalmente  é  utilizado  quando  queremos
+indicar  que  a  função  a  ser  repetida  tem  efeito  colateral.  Além  de
+ `repeatedly` ,  há  outras  funções  projetadas  para  a  geração  de
+sequências  preguiçosas:   `repeat` ,   `iterate`   e   `cycle` .  E,  além
+destas  funções,  existe  uma  outra  forma  de  criarmos  listas
+preguiçosas: fazendo uso da macro  `lazy-seq` .
+
+=== 8.2 A MACRO LAZY-SEQ
+
+Lembra do capítulo anterior, sobre recursão, onde repetíamos
+uma operação sobre uma lista? Criar uma longa lista de elementos
+também  pode  ser  feito  de  forma  recursiva.  Vamos  começar
+relembrando o uso de  `cons` :
+
+```
+;; lembrando o uso de cons para colocar um elemento como cabeça
+;; de uma sequência
+(cons (transacao-aleatoria) transacoes)
+;; ({:valor 35.39M, :tipo "receita"}
+;;  {:valor 33M, :tipo "despesa", :comentario "Almoço",
+;;   :moeda "R$", :data "19/11/2016"}
+;;  {:valor 2700M, :tipo "receita", :comentario "Bico",
+;;   :moeda "R$", :data "01/12/2016"}
+;;  {:valor 29M, :tipo "despesa", :comentario "Livro de Clojure",
+;;   :moeda "R$", :data "03/12/2016"}
+;;  {:valor 45M, :tipo "despesa", :comentario "Jogo no Steam",
+;;   :moeda "R$", :data "26/12/2016"})
+;; seu resultado pode ser diferente
+```
+
+ `cons`  pega o primeiro argumento e o coloca como a cabeça de
+uma  sequência,  e  os  demais  elementos  são  os  que  estão  na
+sequência  passada  como  segundo  argumento.  E  o  motivo  de
+relembrar  o  uso  de   `cons`   é  porque  vamos  usá-la  para  criar  a
+cabeça de uma sequência preguiçosa mais para a frente.
+
+O  trecho  de  código  a  seguir  demonstra  como,  com  recursão,
+conseguimos criar uma sequência com  `cons` :

@@ -1,0 +1,41 @@
+chamando   `transacao-aleatoria`   uma  vez.  Quando  aplicamos
+ `take`  com  `2` ,  já  temos  o  primeiro  elemento,  e  o  segundo  será
+computado,  com  mais  uma  chamada  à  função    `transacao-
+aleatoria`  .  Não  significa  que  o  valor  de    `transacoes-
+aleatorias`  está mudando a cada chamada. O valor permanece o
+mesmo, que é uma sequência, mas seus elementos são "revelados" à
+medida que são necessários. É mais ou menos assim que fica:
+
+```
+(take 1 transacoes-aleatorias)
+;; [elemento-1, ...]
+;; onde ... quer dizer que não sabemos o que tem mais
+;; pode ser mais um elemento, pode não ser mais nada, nil
+
+(take 2 transacoes-aleatorias)
+;; [elemento-1, elemento-2, ...]
+
+(take 5 transacoes-aleatorias)
+;; [elemento-1, elemento-2, ..., elemento-5, ...]
+
+(= (take 5 transacoes-aleatorias) (take 5 transacoes-aleatorias))
+;; true
+```
+
+Como   `transacoes-aleatorias`   mantém  em  memória  os
+registros  que  já  foram  gerados,    (=  (`take  5  transacoes-
+aleatorias`) (`take 5 transacoes-aleatorias`))  é verdade
+.
+Se quisermos ver como é a sequência toda, não vai dar, pois ela
+é infinita e nunca vai terminar de ser processada:
+
+```
+;; vamos ver o valor da sequência toda
+transacoes-aleatorias
+;; ops... o processamento aqui não acaba nunca
+;; aperte ctrl + c para parar
+```
+
+O  processo  não  se  encerra  porque  não  há  fim  nesta  lista,  e  o
+REPL  tenta  pegar  todos  os  elementos  para  imprimi-los  na  tela.
+Mas aí ela nunca chega ao fim. E o REPL nunca para, tadinho.

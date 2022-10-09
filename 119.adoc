@@ -1,0 +1,36 @@
+```
+(take 4 (aleatorias))
+;; ({:valor 230.55M, :tipo "despesa"}
+;;  {:valor 224.57M, :tipo "receita"}
+;;  {:valor 63.63M, :tipo "despesa"}
+;;  {:valor 283.42M, :tipo "despesa"})
+;; seu resultado pode ser diferente
+
+(take 900000 (aleatorias))
+;; ...Muitas transações...
+```
+
+Aqui tem uma versão muito mais reduzida que nos trechos de
+código  anteriores.  Perceba  que  há  uma  recursão  no  segundo
+argumento  para   `cons` ,  na  última  linha  da  função.  No  entanto,
+mesmo  pedindo  muitos  elementos  (900000),  não  há  estouro  de
+pilha,  graças  ao  trabalho  que  a  macro   `lazy-seq`   faz  para  nós.
+Ainda,  como  não  definimos  o  tamanho  da  sequência  na  sua
+construção  (não  passamos  nenhuma  quantidade),  temos  uma
+sequência infinita!
+
+Uma  sequência  preguiçosa  não  precisa  estipular  com  clareza
+um fim para ela. Funções como  `first`  e  `take` , que consomem
+(minha tradução para _realize_) elementos da lista, não sabem quais
+serão  os  próximos  elementos.  Enquanto  a  sequência  prover
+elementos,  take  os vai consumindo e  rest  nos conta qual é o
+restante  da  sequência,  mesmo  sem  seus  elementos  ainda  em
+memória.
+
+=== 8.3 CONCLUSÃO
+
+Com a apresentação da preguiça, encerramos esta parte sobre
+conceitos  de  Programação  Funcional.  Até  aqui  vimos  a
+importância  que  funções  têm  neste  mundo,  derivações  desta
+importância  e  algumas  particularidades  muito  presentes  em
+linguagens  de  programação  funcionais,  como  imutabilidade  e

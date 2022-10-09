@@ -1,0 +1,45 @@
+```
+(defn aleatorias
+  ;; começando a sequência criando a primeira transação
+  ([quantidade]
+    (aleatorias quantidade 1 (list (transacao-aleatoria))))
+  ;; incrementando a sequência até que a quantidade desejada
+  ;; seja atendida
+  ([quantidade quantas-ja-foram transacoes]
+    (if (< quantas-ja-foram quantidade)
+      (aleatorias quantidade (inc quantas-ja-foram)
+                             (cons (transacao-aleatoria)
+                                   transacoes))
+     transacoes)))
+
+;; poucas transações
+(aleatorias 4)
+;; ({:valor 429.01M, :tipo "despesa"}
+;;  {:valor 480.21M, :tipo "despesa"}
+;;  {:valor 57.75M, :tipo "receita"}
+;;  {:valor 869.30M, :tipo "despesa"})
+;; seu resultado pode ser diferente
+
+;; muitas transações
+(aleatorias 900000)
+;; StackOverflowError...
+```
+
+Com  uma  quantidade  pequena,    `aleatorias`    funciona
+tranquilamente.  Na  penúltima  linha  da  função,  nós  criamos  uma
+nova transação, a qual é colocada na cabeça da sequência usando
+ `cons` . O resto da sequência, o segundo argumento para  `cons`  é
+composto pelas transações que foram geradas até agora. Mas uma
+quantidade  muito  grande  (900.000  é  o  suficiente  no  meu
+computador) causa estouro de pilha. É o caso de otimizarmos com
+ `recur` :
+
+```
+(defn aleatorias
+  ([quantidade]
+    (aleatorias quantidade 1 (list (transacao-aleatoria))))
+  ([quantidade quantas-ja-foram transacoes]
+    (if (= quantas-ja-foram quantidade)
+     transacoes
+     ;; aplicando a otimização na cauda
+```

@@ -1,0 +1,31 @@
+```
+  "nada")
+
+;; recebe dois argumentos
+;; mas não faz nada com eles
+;; retornando uma string
+(defn um-oi [a b]
+  "oi")
+
+(um-oi (teste-da-preguica) (teste-da-preguica))
+;; "Não deveria aparecer nada aqui"
+;; "Não deveria aparecer nada aqui"
+;; "oi"
+```
+
+Como   `um-oi`   não  faz  nada  com  os  argumentos,  o  trecho
+ (`teste-da-preguica`)   não  precisa  ser  avaliado.  No  entanto,
+como vemos na saída do console,  `"Não deveria aparecer nada
+aqui"`  acaba aparecendo duas vezes. Aqui fizemos o uso de  prn 
+para ver o texto no terminal. Ela é uma função que imprime seus
+argumentos  para  a  saída  de  dados,  que,  no  REPL,  é  o  terminal.
+Funciona da mesma forma que  pr , a única diferença é que  prn 
+pula  uma  linha  depois  de  imprimir  seus  argumentos,  enquanto
+ pr  não faz isso.
+
+No  entanto,  mesmo  não  sendo  completamente  preguiçosa,
+Clojure  traz  a  capacidade  de  trabalharmos  com  sequências  de
+forma que sua avaliação possa ser tardia. Aliás, já vimos diversos
+caso  em  que  nossas  listas  foram  tratadas  assim.  Várias  operações
+em  sequências  que  utilizamos  até  aqui  são  assim,  como   `map` ,
+ `filter`  e  `reduce` .

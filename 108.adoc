@@ -1,0 +1,39 @@
+****
+LISTAS, SEQUÊNCIAS E COLEÇÕES EM CLOJURE
+
+Para evitar confusão, é importante explicar o que é uma lista,
+o  que  é  uma  sequência  e  o  que  é  uma  coleção,  já  que  não
+significam a mesma coisa. Uma lista é uma estrutura de dados
+que  guarda  diversos  valores,  podendo  ser  repetidos  e  com
+tipos  distintos.  Uma  coleção  agrega  vários  valores  (listas,
+mapas,  conjuntos).  Uma  sequência  é  um  tipo  de  coleção  na
+qual que seus dados são acessados de forma linear. Tanto uma
+coleção, quanto uma sequência, são abstrações. Listas, mapas
+e  conjuntos  podem  ser  tratados  como  sequências,  sendo
+implementações das abstrações.
+****
+
+Vejamos um exemplo de preguiça sendo aplicado em um dos
+códigos que já vimos, no uso de  `filter` , por partes:
+
+```
+;; uma lista de transações
+(def transacoes
+  [{:valor 33.0 :tipo "despesa" :comentario "Almoço"
+    :moeda "R$" :data "19/11/2016"}
+   {:valor 2700.0 :tipo "receita" :comentario "Bico"
+    :moeda "R$" :data "01/12/2016"}
+   {:valor 29.0 :tipo "despesa" :comentario "Livro de Clojure"
+    :moeda "R$" :data "03/12/2016"}
+   {:valor 45M :tipo "despesa" :comentario "Jogo no Steam"
+    :moeda "R$" :data "26/12/2016"}])
+
+;; uma função que nos diz se uma transação é uma despesa
+(defn despesa? [transacao]
+  (= (:tipo transacao) "despesa"))
+
+;; vamos pegar uma sequência que só tenha despesas
+(filter despesa? transacoes)
+;; ({:valor 33.0, :tipo "despesa", :comentario "Almoço",
+;;   :moeda "R$", :data "19/11/2016"}
+```

@@ -1,0 +1,43 @@
+Por outro lado, ainda em Java, há casos em que é claro que um
+trecho de código não precisaria ser avaliado de imediato, mas é:
+
+```
+public class TesteDaPreguica {
+
+    public static void main(String[] args) {
+        String semUso = mensagem(); // uma variável sem uso
+        String tambemSemUso = mensagem(); // outra sem uso
+
+        // nada além disso e o programa se encerra
+    }
+
+    private static String mensagem() {
+        System.out.println("Gravando, 1, 2, 3.");
+
+        return "mensagem";
+    }
+}
+
+// Gravando, 1, 2, 3.
+// Gravando, 1, 2, 3.
+```
+
+As  variáveis   `semUso`   e   `tambemSemUso`   são  declaradas  e
+inicializadas,  chamando  o  método   `mensagem`()   para  verificar
+qual o valor a ser associado a elas. Mas o programa se encerra logo
+que  as  associações  são  feitas  e  nada  mais  acontece.  Mesmo  não
+sendo  necessário,  Java  vai  lá  e  executa   `mensagem`() ,  e  por  isso
+vemos  `Gravando`, `1`, `2`, `3`  duas vezes. Isto é o que é chamado
+de  avaliação  ansiosa,  ou  estrita.  Java  é,  então,  parcialmente
+preguiçosa, já que há preguiça em poucos casos, não na linguagem
+inteira.
+
+Agora vejamos como Clojure lida com a preguiça:
+
+```
+;; imprime uma mensagem
+;; mas se o processamento for preguiçoso, nada deveria aparecer
+;; e retorna uma string
+(defn teste-da-preguica []
+  (prn "Não deveria aparecer nada aqui")
+```
