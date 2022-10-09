@@ -1,0 +1,33 @@
+interessantes.  Como  dito  na  introdução  do  livro,  o  aumento  do
+número de núcleos computacionais pede por programas que lidem
+bem com concorrência. Dada a natureza de linguagens funcionais,
+que  prezam  por  dados  imutáveis,  elas  se  tornam  ideais  para
+cenários  assim,  já  que  é  minimizado  o  risco  de  alterações
+indesejadas no estado de um sistema.
+
+Por  outro  lado,  precisaremos  sair  da  nossa  zona  de  conforto.
+Abriremos  mão  de  alguns  conceitos  do  mundo  de  linguagens
+imperativas que não estarão mais presentes, como loops com  for 
+ou  até  mesmo  variáveis.  E  assim  precisaremos  pensar  de  uma
+forma diferente para resolver alguns problemas. Um exemplo disto
+são os próprios  `loops` , como vimos no capítulo 3, no exemplo do
+uso  da  função   `map` .  E  aqui  fica  o  convite  para  a  introdução  do
+primeiro conceito: a importância de funções.
+
+=== 5.1  FUNÇÕES:  PRIMEIRA  CLASSE  E GRANDEZA SUPERIOR
+
+Por  mais  óbvio  que  soe,  preciso  dizer  que  funções  são  muito
+relevantes  em  Programação  Funcional,  não  é  à  toa  este  nome!
+Funções  são  tão  importantes  que  são  consideradas  de  primeira
+classe. Isto quer dizer que funções são tratadas como valores: assim
+como você passa um número ou uma String para uma função, você
+também pode passar uma função como argumento. Em JavaScript,
+por exemplo, temos o seguinte:
+
+```
+// código JavaScript
+var autor = "George Orwell";
+var nomeDoLivro = "1984";
+var anoDePublicacao = 1949;
+// variáveis 'normais'
+```

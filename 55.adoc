@@ -1,0 +1,41 @@
+de fora.
+
+Agora  que  as  despesas  estão  separadas,  que  tal  somar  o  valor
+delas?
+
+*Condensando resultado de iterações*
+
+Depois  de  aplicarmos    `filter`  ,  conseguimos  uma  outra
+coleção com os valores que queríamos. E agora precisamos somar
+todos eles. Usando uma versão do Java anterior à 8, teríamos que
+fazer algo assim:
+
+```
+public Integer somaDosValores(List<Integer> valores) {
+    Integer soma = 0;
+
+    for (Integer valor : valores) {
+        soma += valor;
+    }
+
+    return soma;
+}
+```
+
+Linguagens de programação com recursos funcionais facilitam
+essa  operação  através  de  uma  função  conhecida  por  diversos
+nomes,  de  acordo  com  a  linguagem.  Em  Clojure,  ela  se  chama
+ `reduce` ,  mas  pode  ser  encontrada  com  os  seguintes  nomes  em
+outras linguagens:  `fold` ,  `aggregate` ,  `accumulate` ,   `inject` ,
+dentre outros nomes.
+
+Então, vamos utilizar o  reduce  para fazer a soma de todos os
+valores da coleção de valores das despesas?
+
+```
+defn so-valor [transacao]
+  (:valor transacao))
+;; função que pega só o valor de uma transação
+
+(map so-valor (filter despesa? transacoes))
+```

@@ -1,0 +1,42 @@
+```
+(def transacoes
+  [{:valor 33.0 :tipo "despesa"
+    :comentario "Almoço" :data "19/11/2016"}
+   {:valor 2700.0 :tipo "receita"
+    :comentario "Bico" :data "01/12/2016"}
+   {:valor 29.0 :tipo "despesa"
+    :comentario "Livro de Clojure" :data "03/12/2016"}])
+;; as transações
+
+(map resumo transacoes)
+;; ({:valor 33.0,   :tipo "despesa", :data "19/11/2016"}
+;;  {:valor 2700.0, :tipo "receita", :data "01/12/2016"}
+;;  {:valor 29.0,   :tipo "despesa", :data "03/12/2016"})
+```
+
+Perceba  que  o  resultado  foram  transações  sem  o  campo  de
+comentário.  A  função  nativa    `select-keys`    permite  que
+peguemos só alguns valores de um mapa. Daí, com  map , pegamos
+o  `resumo`  de cada item de  `transacoes` . E se quisermos procurar
+algum  padrão  nas  despesas,  e  filtrando  as  transações  que  são  do
+tipo  `"despesa"` ?
+
+*Filtrando transações*
+
+A função  filter  pode nos ajudar aqui. Assim:
+
+```
+(defn despesa? [transacao]
+  (= (:tipo transacao) "despesa"))
+;; função que verifica se uma transação é uma despesa,
+;; verificando o valor para a chave :tipo
+
+(filter despesa? transacoes)
+;; ({:valor 33.0, :tipo "despesa",
+;;   :comentario "Almoço", :data "19/11/2016"}
+;;  {:valor 29.0, :tipo "despesa",
+;;   :comentario "Livro de Clojure", :data "03/12/2016"})
+```
+
+Das  3  transações  que  temos,  apenas  uma  é  uma  receita.  E
+ `filter`  separou para nós só as que queremos, deixando a receita

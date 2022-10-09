@@ -1,0 +1,41 @@
+```
+;; (33.0 29.0)
+;; pegamos só os valores das despesas, que serão
+;; condensados com reduce
+
+(reduce + (map so-valor (filter despesa? transacoes)))
+;; 62.0
+;; a soma dos valores das despesas
+```
+
+`reduce`   é  uma  função  que  combina  todos  os  itens  de  uma
+coleção  em  um  valor  só.   `reduce`   aplica  uma  função  que  vai
+resultando  em  um  valor  acumulado.  Aqui,  ela  começa  com  um
+valor nulo e aplica a função passada ( + , neste caso) ao primeiro
+item  da  lista,  e  coloca  o  resultado  em  uma  variável  interna  que
+costumamos  chamar  de  acumulador.  Então,  ela  parte  para  os
+elementos  seguintes,  aplicando   +   entre  o  valor  acumulado  e  o
+próximo item da coleção.
+
+Se você conhece Ruby, já deve ter visto uma função similar a
+ `reduce` , chamada  `inject` . Ela funciona mais ou menos assim:
+
+```
+# código Ruby
+valores = [33.0, 29.0]
+
+valores.inject(:+)
+# 62.0
+```
+
+Esta combinação  `filter` ,  `map` , e  `reduce`  é muito popular e
+poderosíssima! Você certamente encontrará muitas destas funções
+por aí, em diversas linguagens, e por isso fiz questão de trazê-las o
+mais cedo possível no livro!
+
+*Funções anônimas*
+
+Até  aqui,  usamos  duas  coisas  bem  comuns  para  associar
+valores a nomes:  `def`  para dar nome a algum dado, e  `defn`  para
+dar  nome  a  uma  função  que  nós  criamos.  Acontece  que  nem
+Funções anônimas

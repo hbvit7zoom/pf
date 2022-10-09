@@ -1,0 +1,41 @@
+```
+let descricaoCompleta = (autor, nomeDoLivro, anoDePublicacao) => 
+{
+  return nomeDoLivro + ", " + autor + ", " + anoDePublicacao;
+}
+// variável que é uma função
+```
+
+Em  JavaScript,  podemos  declarar  variáveis  cujo  tipo  são
+funções,  e  isso  faz  com  que  JavaScript  seja  uma  linguagem  que
+possui  funções  como  cidadãs  de  primeira  classe.  Java  é  um
+exemplo  de  linguagem  em  que  funções  (métodos)  não  são
+consideradas  cidadãs  de  primeira  classe,  apesar  de  ser  possível  a
+passagem de funções como argumento para um método (a partir
+do  Java  8).  Um  recurso  que  falta  ao  Java,  nesse  sentido,  é  a
+capacidade de um método retornar uma função.
+
+Com toda esta importância, ganhamos um recurso a mais para
+lidar  com  funções,  que  são  as  funções  de  grandeza  superior  (em
+inglês,  _higher-order functions_).  Funções  de  grandeza  superior  são
+funções que recebem funções como argumento, ou que retornam
+uma  função  como  resultado.  Por  exemplo,  veja  este  trecho  de
+código  para  lidar  com  o  registro  de  senhas,  usando  a  técnica
+(simplificada)  de  _salting_  (uma  técnica  que  anexa  uma  String
+aleatória a uma senha antes que ela seja criptografada e salva):
+
+```
+// código JavaScript
+let salgarSimples = (valor) => {
+  return valor + "sal"
+};
+// função que aplica um sal para um texto
+
+salgarSimples("senhainsegura");
+// "senhainsegurasal"
+// perceba que "sal" foi anexado ao final da senha, como esperado
+
+let gravarCliente = (nome, senha, comoSalgar) => {
+  console.log("Salvando cliente de nome '" + nome + "'");
+  console.log("Senha salva: " + comoSalgar(senha));
+```

@@ -1,0 +1,46 @@
+```
+(defn ola [nome]
+  (str "Olá, " nome "!"))
+
+(ola "mundo novo")
+```
+
+O truque com  defn  é que ele nada mais é que uma macro que
+nos  proporciona  um  atalho  que,  no  fundo,  nos  serve  como  isso
+aqui:
+
+```
+(def ola (fn [nome]
+           (str "Olá, " nome "!")))
+
+(ola "mundo novo")
+```
+
+O que acontece aqui é que usamos  `fn`  para criar uma função,
+ `def`   para  dar  nome  às  coisas,  e   `defn`   para  facilitar  nossa  vida
+quando precisamos dar nomes a funções.
+
+Agora que sabemos que como criar nossas funções anônimas,
+como faríamos para filtrar nossa coleção de transações sem aquela
+ `valor-grande?` ? Assim:
+
+```
+(filter (fn [transacao]
+          (> (:valor transacao) 100))
+        transacoes)
+;; ({:valor 2700.0, :tipo "receita",
+;;   :comentario "Bico", :data "01/12/2016"})
+```
+
+O primeiro argumento para  `filter`  é uma função anônima, e
+o segundo é a coleção,  `transações` .
+
+Como  funções  anônimas  são  tão  comuns  nessa  vida,  existe
+uma forma curta de descrevê-las. Lembra que existem funções para
+criar listas e mapas, mas que existem formas curtas para criar estas
+estruturas  de  dados?  O  mesmo  recurso  é  disponibilizado  para
+funções anônimas. Assim:
+
+```
+(filter #(> (:valor %) 100)
+```

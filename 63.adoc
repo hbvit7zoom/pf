@@ -1,0 +1,27 @@
+é  quando  há  muitas  operações  em  série  em  cima  de  um  mesmo
+argumento  inicial.  Um  caso  muito  comum  é  na  escrita  de
+_middlewares_  para  o  Ring  (https://github.com/ring-clojure/ring),
+uma biblioteca para aplicações Web. Um exemplo do uso do Ring
+é o seguinte:
+
+```
+(def app
+  (-> (wrap-json-body app-routes {:keywords? true
+                                  :bigdecimals? true})
+      (wrap-json-response)
+      (wrap-request-logger)
+      (wrap-exception-handler)
+      (wrap-response-logger)))
+```
+
+=== 5.3 CONCLUSÃO
+
+Um  vasto  capítulo,  hein?  Aqui  vimos  algo  essencial  para  a
+prática da Programação Funcional: funções de grandeza superior e
+funções  como  cidadãs  de  primeira  classe.  Junto  com  alguns
+exemplos  de  uso  de  funções  célebres  (como   `filter` ,   `map`   e
+ `reduce` ), vimos como Clojure se diferencia no processo de aplicar
+funções a itens de uma coleção. De quebra, ainda tivemos alguns
+detalhes sobre Clojure com as macros  ->   e   ->> .  No  próximo
+capítulo  vamos  um  pouco  além  nesse  mundo  de  funções,
+abordando os temas de composição e _currying_.

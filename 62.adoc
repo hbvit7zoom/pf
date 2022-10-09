@@ -1,0 +1,39 @@
+Lemos  de  dentro  para  fora:  primeiro  pegamos  o  primeiro
+elemento com  `first`  e depois pegamos só o valor através de  `so-
+valor` . Com a macro  -> , este código ficaria da seguinte forma:
+
+```
+(-> (first transacoes)
+    (so-valor))
+;; 33.0
+```
+
+Fica  bem  mais  claro  qual  a  ordem  de  execução,  certo?  Esta
+macro se chama _thread-first_. Apesar de ter _thread_ no nome, não há
+nada de concorrência aqui. Mas vale pensar em _thread_ como um
+fluxo, e o _first_ (de thread _first_) é importante porque significa que o
+resultado  de  uma  linha  é  usado  como  o  primeiro  argumento  da
+função seguinte. É por isso que  `so-valor`   aparenta  não  receber
+nenhum argumento, quando, de fato, recebe o resultado da função
+anterior como seu primeiro argumento.
+
+Existe uma outra macro parecida:  ->> ,  chamada  de  _thread-
+last_. Ela é útil nos casos em que precisamos passar o resultado da
+aplicação  de  uma  função  como  o  último  argumento  da  função
+seguinte. Por exemplo:
+
+```
+(->> (filter despesa? transacoes)
+     (map so-valor)
+     (reduce +))
+;; 62.0
+```
+
+Tanto   `map`   quanto   `reduce`   recebem  uma  função  como
+primeiro argumento, e por isso a macro  -> , _thread-first_, não nos
+serve. Então, o resultado de  (`filter despesa? transacoes`)   é
+passado  como  último  argumento  para   (`map so-valor`) ,  e  seu
+resultado é passado como último argumento para  (`reduce` +) .
+
+É bem comum ver ambas as macros utilizadas por aí! Sinta-se à
+vontade para utilizá-las. Meu critério para usar uma destas macros
