@@ -1,8 +1,8 @@
-```
+
  transacoes)
 ```
 
-Aqui utilizamos a forma  #(...)   para  encurtar  a  declaração
+Aqui utilizamos a forma  `#(...)`   para  encurtar  a  declaração
 da  função  anônima.  Perceba  que  agora  não  temos  mais  um
 argumento com o nome; antes tínhamos um argumento chamado
  `transacao` , e agora ele não é mais tão explícito. Mesmo assim, o

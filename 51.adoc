@@ -7,11 +7,11 @@ indesejadas no estado de um sistema.
 
 Por  outro  lado,  precisaremos  sair  da  nossa  zona  de  conforto.
 Abriremos  mão  de  alguns  conceitos  do  mundo  de  linguagens
-imperativas que não estarão mais presentes, como loops com  for 
+imperativas que não estarão mais presentes, como _loops_ com  for 
 ou  até  mesmo  variáveis.  E  assim  precisaremos  pensar  de  uma
 forma diferente para resolver alguns problemas. Um exemplo disto
-são os próprios  `loops` , como vimos no capítulo 3, no exemplo do
-uso  da  função   `map` .  E  aqui  fica  o  convite  para  a  introdução  do
+são os próprios  `loops`, como vimos no capítulo 3, no exemplo do
+uso  da  função   `map`.  E  aqui  fica  o  convite  para  a  introdução  do
 primeiro conceito: a importância de funções.
 
 === 5.1  FUNÇÕES:  PRIMEIRA  CLASSE  E GRANDEZA SUPERIOR
@@ -30,4 +30,3 @@ var autor = "George Orwell";
 var nomeDoLivro = "1984";
 var anoDePublicacao = 1949;
 // variáveis 'normais'
-```

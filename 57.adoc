@@ -33,7 +33,7 @@ anônima!  Então,  chegou  a  hora  de  entendermos  melhor  o  que  o
 Clojure é sintaticamente muito simples, com poucas palavras-
 chaves e notações nativas, sendo  `def`  um destes recursos nativos
 (_special  form_,  como  consta  na  documentação  da  linguagem).  Só
-que Clojure provê um recurso chamado macros (não são como as
+que Clojure provê um recurso chamado _macros_ (não são como as
 macros do Excel, ok?), que permite que a linguagem seja estendida.
 Às vezes, o mais simples é entender que algumas macros provêm
 atalhos.  Este  é  o  caso  de   `defn` :  uma  macro  para  definição  de

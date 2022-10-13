@@ -38,4 +38,3 @@ defn so-valor [transacao]
 ;; função que pega só o valor de uma transação
 
 (map so-valor (filter despesa? transacoes))
-```

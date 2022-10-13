@@ -1,4 +1,4 @@
-```
+
 ;; (33.0 29.0)
 ;; pegamos só os valores das despesas, que serão
 ;; condensados com reduce
@@ -11,10 +11,10 @@
 `reduce`   é  uma  função  que  combina  todos  os  itens  de  uma
 coleção  em  um  valor  só.   `reduce`   aplica  uma  função  que  vai
 resultando  em  um  valor  acumulado.  Aqui,  ela  começa  com  um
-valor nulo e aplica a função passada ( + , neste caso) ao primeiro
+valor nulo e aplica a função passada ( `+` , neste caso) ao primeiro
 item  da  lista,  e  coloca  o  resultado  em  uma  variável  interna  que
-costumamos  chamar  de  acumulador.  Então,  ela  parte  para  os
-elementos  seguintes,  aplicando   +   entre  o  valor  acumulado  e  o
+costumamos  chamar  de  _acumulador_.  Então,  ela  parte  para  os
+elementos  seguintes,  aplicando   `+`   entre  o  valor  acumulado  e  o
 próximo item da coleção.
 
 Se você conhece Ruby, já deve ter visto uma função similar a

@@ -43,4 +43,3 @@ funções anônimas. Assim:
 
 ```
 (filter #(> (:valor %) 100)
-```

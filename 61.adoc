@@ -31,7 +31,7 @@ dentro para fora:
 
 Mas isso ainda pode não ser tão legível em casos complexos, ou
 nem  ser  a  preferência  de  algumas  pessoas.  Eis  que  surge  uma
-macro  interessante:   -> .  Ela  nos  ajuda  a  escrevermos  código
+macro  interessante:   `->` .  Ela  nos  ajuda  a  escrevermos  código
 deixando  clara  a  ordem  de  execução.  Imagine  um  caso  simples
 onde  queremos  pegar  só  o  valor  da  primeira  transação  de  uma
 coleção:

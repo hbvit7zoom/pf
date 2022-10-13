@@ -1,4 +1,4 @@
-```
+
 };
 // função que 'salva' cliente no console
 
@@ -18,7 +18,7 @@ domínio.
 === 5.2  FUNÇÕES  DE  GRANDEZA  SUPERIOR  E NOSSAS FINANÇAS
 
 Já vimos um exemplo de uso de função de grandeza superior
-no  capítulo  3,  utilizando  a  função   map .   map   é  o  recurso  que
+no  capítulo  3,  utilizando  a  função   `map`.   `map`   é  o  recurso  que
 Clojure provê (função) para que iteremos sobre uma coleção, e, a
 cada  iteração,  aplica-se  uma  função.  Por  fim,  é  retornada  uma
 outra coleção como resultado. Vamos ver um exemplo?
@@ -35,4 +35,3 @@ chaves e valores que nos interessem:
 (defn resumo [transacao]
   (select-keys transacao [:valor :tipo :data]))
 ;; função que cria um resumo de uma transação
-```

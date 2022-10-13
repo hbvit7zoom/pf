@@ -1,4 +1,5 @@
 == CAPÍTULO 5 PROGRAMAÇÃO FUNCIONAL, O COMEÇO
+
 Acabamos de nos familiarizar com Clojure e agora está na hora
 de  começarmos  a  conversa  sobre  os  princípios  da  Programação
 Funcional.  A  ideia  é  abordar  o  assunto  de  forma  um  tanto

@@ -1,4 +1,4 @@
-```
+
 let descricaoCompleta = (autor, nomeDoLivro, anoDePublicacao) => 
 {
   return nomeDoLivro + ", " + autor + ", " + anoDePublicacao;
@@ -38,4 +38,3 @@ salgarSimples("senhainsegura");
 let gravarCliente = (nome, senha, comoSalgar) => {
   console.log("Salvando cliente de nome '" + nome + "'");
   console.log("Senha salva: " + comoSalgar(senha));
-```

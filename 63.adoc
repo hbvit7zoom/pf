@@ -22,6 +22,6 @@ funções  como  cidadãs  de  primeira  classe.  Junto  com  alguns
 exemplos  de  uso  de  funções  célebres  (como   `filter` ,   `map`   e
  `reduce` ), vimos como Clojure se diferencia no processo de aplicar
 funções a itens de uma coleção. De quebra, ainda tivemos alguns
-detalhes sobre Clojure com as macros  ->   e   ->> .  No  próximo
+detalhes sobre Clojure com as macros  `->`   e   `->>` .  No  próximo
 capítulo  vamos  um  pouco  além  nesse  mundo  de  funções,
 abordando os temas de composição e _currying_.

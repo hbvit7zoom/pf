@@ -1,4 +1,4 @@
-```
+
 (def transacoes
   [{:valor 33.0 :tipo "despesa"
     :comentario "Almoço" :data "19/11/2016"}
@@ -16,14 +16,14 @@
 
 Perceba  que  o  resultado  foram  transações  sem  o  campo  de
 comentário.  A  função  nativa    `select-keys`    permite  que
-peguemos só alguns valores de um mapa. Daí, com  map , pegamos
+peguemos só alguns valores de um mapa. Daí, com  `map`, pegamos
 o  `resumo`  de cada item de  `transacoes` . E se quisermos procurar
 algum  padrão  nas  despesas,  e  filtrando  as  transações  que  são  do
 tipo  `"despesa"` ?
 
 *Filtrando transações*
 
-A função  filter  pode nos ajudar aqui. Assim:
+A função  `filter`  pode nos ajudar aqui. Assim:
 
 ```
 (defn despesa? [transacao]
