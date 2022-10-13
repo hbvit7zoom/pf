@@ -1,4 +1,4 @@
-Em seguida tentamos obter o valor de  `:rotulos`  novamente, mas desta  vez  indicamos  que  teremos  uma  lista  vazia  ( '() )  caso  a chave  `:rotulos`  não seja encontrada.
+Em seguida tentamos obter o valor de  `:rotulos`  novamente, mas desta  vez  indicamos  que  teremos  uma  lista  vazia  (`'()`)  caso  a chave  `:rotulos`  não seja encontrada.
 
 E por que retornar alguma coisa em vez de nulo quanto uma chave  não  é  encontrada  em  um  mapa?  
 Trabalhar  com  a possibilidade  de  valores  nulos  permite  a  introdução  de  diversos problemas,  vide  a  apresentação  do  erro  bilionário: https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare/.  

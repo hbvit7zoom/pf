@@ -1,12 +1,14 @@
 === 4.1 KEYWORDS
-Conhecidas  como  símbolos  em  outras  linguagens  (Ruby,  por exemplo),  keywords  são  estruturas  de  dados  muito  simples, utilizadas principalmente como chaves de mapas. 
+
+Conhecidas  como  símbolos  em  outras  linguagens  (Ruby,  por exemplo),  _keywords_  são  estruturas  de  dados  muito  simples, utilizadas principalmente como chaves de mapas. 
 Lembra quando usamos   `:else`   no  capítulo  1?  
 Ali  utilizamos  este  símbolo  para declarar  alguma  coisa  não  nula  para  que  fosse  sempre  executada no fluxo da avaliação de condições.
 
 ****
-Existe um tipo em Clojure chamado Symbol, que não deve ser confundido  com  keywords.  
+Existe um tipo em Clojure chamado _Symbol_, que não deve ser confundido  com  keywords.  
 Recomendo  o  livro  _The  Joy  of Clojure_,  de  Michael  Fogus  e  Chris  Houser,  se  você  quiser saber mais sobre este tipo.
 ****
+
 ```
 ;; uma keyword
 :a

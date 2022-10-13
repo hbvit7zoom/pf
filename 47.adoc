@@ -37,5 +37,5 @@ Podemos  também  ter valores opcionais caso a chave não seja encontrada no map
 ;; ()
 ```
 
-Nesse código, criamos um mapa que tem como um dos valores uma lista (cuja chave é  `:rotulos` ), e dele obtemos tal lista usando a  chave.  
+Nesse código, criamos um mapa que tem como um dos valores uma lista (cuja chave é  `:rotulos`), e dele obtemos tal lista usando a  chave.  
 Tentamos  fazer  o  mesmo  com   `transacao` ,  que  não possui a chave  `:rotulos` , e, portanto, não retorna nada ( `nil` )
