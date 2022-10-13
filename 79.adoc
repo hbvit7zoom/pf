@@ -3,7 +3,7 @@ para  juntar  elementos  de  um  array  em  uma  string,  com  os
 elementos separados por vírgula, fazemos o seguinte:
 
 ```
-(clojure.string/join ", " (map texto-resumo-em-yuan transacoes))
+(`clojure.string/join ", "` (map texto-resumo-em-yuan transacoes))
 ;; "19/11/2016 => ¥ -70.950, 01/12/2016 => ¥ +5805.000, ...
 ;;  03/12/2016 => ¥ -62.350"
 ```
@@ -28,8 +28,8 @@ facilitar um pouco as coisas:
 Neste  exemplo,    `juntar-tudo`    é  a  aplicação  parcial  de
  `clojure.string/join` ,  já  definindo  o  primeiro  argumento.  Os
 demais argumentos vêm depois, quando a função parcial  `juntar-
-tudo`   é  aplicada  ao  resultado  de   (`map`  `texto-resumo-em-yuan
-transacoes`) .
+tudo`   é  aplicada  ao  resultado  de   `(map  texto-resumo-em-yuan
+transacoes)` .
 
 === 6.3 CONCLUSÃO
 

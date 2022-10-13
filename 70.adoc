@@ -1,4 +1,4 @@
-```
+
 (defn transacao-em-yuan [transacao]
   (assoc transacao :valor (* (:cotacao (:yuan cotacoes))
                              (:valor transacao))
@@ -16,7 +16,7 @@ como está, é preciso aninhar o processo de pegar o valor de uma
 chave,  sendo  este  valor  um  outro  mapa,  com  pares  de  chaves  e
 valores.
 
-Para facilitar, temos a função  get-in  que permite simplificar
+Para facilitar, temos a função  `get-in`  que permite simplificar
 casos  assim.  Aqui  vemos  como  buscar  valores  aninhados  em  um
 mapa de forma mais simples:
 
@@ -33,9 +33,9 @@ mapa de forma mais simples:
 
 `get-in`  recebe um mapa ( `transacao` ), que é de onde vamos
 pegar o valor desejado, e um array, que descreve o caminho até o
-valor,  composto  pelas  chaves  ( [`:yuan` `:cotacao`]   ou   [`:yuan`
-`:simbolo`] ).  Se  nosso  mapa  tivesse  outras  moedas,  poderíamos
-fazer a mesma pesquisa, mas com  [`:euro` `:cotacao`]  e  [`:euro`
-`:simbolo`] .
+valor,  composto  pelas  chaves  ( `[:yuan :cotacao]`   ou   `[:yuan
+:simbolo]` ).  Se  nosso  mapa  tivesse  outras  moedas,  poderíamos
+fazer a mesma pesquisa, mas com  `[:euro :cotacao]`  e  `[:euro1
+:simbolo]` .
 
 Ainda  assim  está  um  pouco  mais  complicado  do  que  precisa

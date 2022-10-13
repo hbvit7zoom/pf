@@ -40,4 +40,3 @@ parâmetro. E já podemos incluir mais cotações na nossa tabela:
 (transacao-em-outra-moeda :euro (last transacoes))
 ;; {:valor 8.120M, :tipo "despesa", :comentario "Livro de Clojure
 ",
-```

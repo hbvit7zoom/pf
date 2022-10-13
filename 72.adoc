@@ -18,9 +18,9 @@
 ;; java.math.BigDecimal
 ```
 
-Perceba que  (* `3.1` `3.1`)  também dá um resultado estranho.
-Já   (*  `3.1M`  `3.1M`)   nos  dá  o  resultado  desejado.  Para  usar
- `BigDecimal` s,  basta  anexar   M   ao  número,  como  em   `3.1M` .
+Perceba que  `(* 3.1 3.1)`  também dá um resultado estranho.
+Já   `(*  3.1M  3.1M)`   nos  dá  o  resultado  desejado.  Para  usar
+ `BigDecimal` s,  basta  anexar   `M`   ao  número,  como  em   `3.1M` .
 Assim, vamos corrigir tanto nosso conjunto de transações, quanto
 a cotação do yuan:
 

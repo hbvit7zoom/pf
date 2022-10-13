@@ -1,4 +1,4 @@
-```
+
 ;;  :moeda "€", :data "03/12/2016"}
 
 (transacao-em-outra-moeda :yuan (first transacoes))

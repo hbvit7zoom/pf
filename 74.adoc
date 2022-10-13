@@ -4,8 +4,8 @@
 ```
 
 Perceba que usamos  `def` , e não  `defn` . Lembrando,  `defn`  é a
-forma  curta  para    (`def`  `nome-da-funcao`  (`fn`  [`argumento`]
-(<`alguma`  `operação`  `aqui`>)))  ,  abstraindo  a  necessidade  de
+forma  curta  para    `(def  nome-da-funcao  (fn  [argumento]
+(<alguma  operação  aqui>)))`  ,  abstraindo  a  necessidade  de
 declarar  `fn` .   `comp`   funciona  como   `fn` ,  pois  cria  uma  função
 para nós, cujo nome é  `texto-resumo-em-yuan` . E o corpo desta
 função é a composição de  `data-valor`  e  `transacao-em-yuan` ,

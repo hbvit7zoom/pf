@@ -16,7 +16,7 @@ e possuem a formatação que eu gostaria de ter utilizado aqui.
 ****
 
 Agora  precisamos  de  uma  função  que  pegue  o  valor  de  uma
-transação e coloque  +  ou  -  antes do seu valor:
+transação e coloque  `+`  ou  -  antes do seu valor:
 
 ```
 (defn valor-sinalizado [transacao]
@@ -37,4 +37,3 @@ sinalizado` :
 ```
 (defn valor-sinalizado [transacao]
   (if (= (:tipo transacao) "despesa")
-```

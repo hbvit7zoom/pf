@@ -1,7 +1,7 @@
 Agora  que  conseguimos  transformar  uma  transação  no  texto
 que queremos, precisamos de uma função que exiba uma transação
-com a data, na formatação que mencionamos antes:  `data` => R$
-`+-valor` .
+com a data, na formatação que mencionamos antes:  `data => R$
++-valor` .
 
 ```
 (defn data-valor [transacao]
@@ -29,14 +29,13 @@ desta moeda é colocado na transação:
 ```
 
 `assoc` ,  que  vem  do  inglês  _associate_,  pega  o  mapa  passado
-( `transacao` ), e associa a este mapa os valores que seguem como
+(`transacao`), e associa a este mapa os valores que seguem como
 argumento.  Neste  exemplo,   `transacao`   terá  o  valor  das  chaves
  `:valor`   e   `:moeda`   atualizados,  respectivamente,  para   `70.95` 
-( (* `2.15` `33.0`) ) e  "¥" . Vamos dar uma pequena melhorada
+( `(* 2.15 33.0)` ) e  "¥" . Vamos dar uma pequena melhorada
 no exemplo removendo os valores de conversão de yuan de dentro
 da função  `transacao-em-yuan` :
 
 ```
 (def cotacoes
   {:yuan {:cotacao 2.15 :simbolo "¥"}})
-```

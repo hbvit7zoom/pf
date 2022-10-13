@@ -1,5 +1,5 @@
 Clojure?  Imagine  que  uma  transação  não  tenha  uma  moeda
-definida,  e,  em  um  caso  como  este,  queremos  que   "R$"   seja
+definida,  e,  em  um  caso  como  este,  queremos  que   `"R$"`   seja
 retornado por padrão. Sem uma moeda definida, como na seguinte
 transação aleatória, o resultado de  `valor-sinalizado`  fica assim:
 

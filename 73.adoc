@@ -7,7 +7,7 @@ yuan` :
 ```
 
 Esta  função  é  um  bom  caso  para  usarmos  a  macro   `thread-
-first`  ( -> ),  já  que  a  função  nada  mais  faz  que  aplicar   `data-
+first`  ( `->` ),  já  que  a  função  nada  mais  faz  que  aplicar   `data-
 valor`  aos dados retornados por  `transacao-em-yuan` :
 
 ```
@@ -29,7 +29,7 @@ apenas  combinar  outras  funções,  passando  para  uma  o  resultado
 da  outra,  há  o  forte  indício  de  que  podemos  fazer  uso  da
 composição  de  funções.  Existe  um  recurso  em  Clojure  que  nos
 permite construir a composição de duas ou mais funções: a função
- `comp` . Usando  `comp , quer dizer, fazendo composição de  `data-
+ `comp` . Usando  `comp` , quer dizer, fazendo composição de  `data-
 valor`   e   `transacao-em-yuan` ,   `texto-resumo-em-yuan`   fica
 assim:
 
@@ -38,4 +38,3 @@ assim:
 
 (map texto-resumo-em-yuan transacoes)
 ;; ("19/11/2016 => ¥ -70.950" ...
-```
