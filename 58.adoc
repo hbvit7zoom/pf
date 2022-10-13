@@ -1,0 +1,44 @@
+funções.
+
+Lembra-se  de  que  funções  são  cidadãs  de  primeira  classe  em
+Clojure? Isso significa que funções podem ser associadas a nomes,
+assim como uma coleção, por exemplo.  `def`   é  o  que  utilizamos
+para dar nome a algo, como nestes exemplos:
+
+```
+(def impares '(1 3 5 7 9))
+(def ano-do-pentacampeonato-do-brasil 2002)
+(def pi 3.14)
+(def um-terco 1/3) ;; acredite, uma razão é um tipo válido
+```
+
+Existe  outra  forma  especial  (como   `def`  )  para  criar  uma
+função:   `fn` .  Só  que  é  uma  função  sem  nome,  que  ninguém
+consegue chamar:
+
+```
+(fn [])
+;; uma função que não recebe nenhum argumento e não faz nada
+
+(fn [nome]
+  (str "Olá, " nome "!"))
+;; uma função que recebe um argumento, nome, e retorna uma
+;; mensagem carinhosa.
+```
+
+Acontece que estas funções acabam ficando no limbo, porque
+não há como nós a referenciarmos. A não ser que já as executemos
+no momento da sua criação:
+
+```
+((fn [nome]
+   (str "Olá, " nome "!"))
+ "mundo novo")
+;; "Olá, mundo novo!"
+```
+
+Perceba que há dois parênteses antes de  `fn` : um significa que
+vamos chamar alguma função. O outro é o começo da construção
+da função sem nome. Logo após o parêntese que fecha a definição
+da função, passamos o único argumento que a função sem nome
+espera. Se tivéssemos usado  `defn` , ficaria assim:

@@ -1,0 +1,23 @@
+== CAPÍTULO 5 PROGRAMAÇÃO FUNCIONAL, O COMEÇO
+
+Acabamos de nos familiarizar com Clojure e agora está na hora
+de  começarmos  a  conversa  sobre  os  princípios  da  Programação
+Funcional.  A  ideia  é  abordar  o  assunto  de  forma  um  tanto
+pragmática.  Ao  fim  desta  parte,  espero  que  você  tenha  uma  boa
+compreensão  do  essencial  deste  paradigma,  já  levando  algumas
+ideias  para  o  seu  dia  a  dia.  E,  claro,  que  aproveite  este
+conhecimento para escrever programas melhores. Além disso, caso
+você queira se aprofundar em teorias e conceitos matemáticos, há
+referências esperando por você no fim do livro.
+
+Programação  Funcional  não  é  novidade  alguma.  De  fato,  é
+baseada  no  cálculo  _lambda_,  desenvolvido  em  meados  dos  anos
+1930.  Mas,  por  muito  tempo,  linguagens  de  Programação
+Funcional  eram  tidas  como  lentas  e  exigiam  maior  consumo  de
+memória  se  comparadas  às  linguagens  de  Programação
+Imperativa.  Hoje,  estes  argumentos  são  infundados,  já  que
+compiladores de linguagens funcionais, há bastante tempo, trazem
+recursos como _tail call optimization_ (tema para o capítulo 7), que
+melhoram, e muito, o uso de recursos computacionais.
+
+Por  um  lado,  poderemos  tirar  proveito  de  novidades

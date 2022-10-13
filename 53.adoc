@@ -1,0 +1,37 @@
+
+};
+// função que 'salva' cliente no console
+
+gravarCliente("Gregório", "senhasegurademais", salgarSimples);
+// Salvando cliente de nome 'Gregório'
+// Senha salva: senhasegurademaissal
+```
+
+Repare que o argumento  salgar  é uma função e é utilizada
+como  argumento  para    `gravarCliente`  .  Isso  permite  que
+  `gravarCliente`    não  se  importe  com  a  estratégia  que  será
+utilizada para salgar a senha.
+
+E  agora  veremos  como  utilizaremos  esse  recurso  no  nosso
+domínio.
+
+=== 5.2  FUNÇÕES  DE  GRANDEZA  SUPERIOR  E NOSSAS FINANÇAS
+
+Já vimos um exemplo de uso de função de grandeza superior
+no  capítulo  3,  utilizando  a  função   `map`.   `map`   é  o  recurso  que
+Clojure provê (função) para que iteremos sobre uma coleção, e, a
+cada  iteração,  aplica-se  uma  função.  Por  fim,  é  retornada  uma
+outra coleção como resultado. Vamos ver um exemplo?
+
+*Iterando sobre transações*
+
+Imagine  que  temos  uma  coleção  de  transações  e,  para  a
+aplicação  cliente,  nosso  serviço  deve  retornar  um  conjunto
+reduzido de dados: o valor, o tipo da transação (receita ou despesa)
+e a data. Nosso programa, então, deve varrer cada mapa e pegar só
+chaves e valores que nos interessem:
+
+```
+(defn resumo [transacao]
+  (select-keys transacao [:valor :tipo :data]))
+;; função que cria um resumo de uma transação

@@ -1,0 +1,39 @@
+
+ transacoes)
+```
+
+Aqui utilizamos a forma  `#(...)`   para  encurtar  a  declaração
+da  função  anônima.  Perceba  que  agora  não  temos  mais  um
+argumento com o nome; antes tínhamos um argumento chamado
+ `transacao` , e agora ele não é mais tão explícito. Mesmo assim, o
+argumento ainda existe. Lembre-se,  `filter`   vai  passar  por  cada
+elemento  da  coleção  e  passá-lo  para  a  função  que  citamos  como
+primeiro  argumento.  Daí,  cada  elemento  da  coleção  vira
+argumento  da  função  anônima.  Só  que  não  precisamos  dar  um
+nome a este argumento. Tanto faz. Por isso, podemos referenciá-lo
+com  % , como em  (`:valor` %) .
+
+****
+*E SE MINHA FUNÇÃO ANÔNIMA RECEBER MAIS DE UM ARGUMENTO?*
+
+Você  poderá  utilizar   `%1` ,   `%2` ,   `%3` ,  daí  em  diante,  para
+referenciar  os  argumentos  na  ordem  em  que  eles  são
+passados.
+****
+
+Tendo  visto  como  lidar  com  funções  anônimas,  podemos
+utilizá-las  para  o  caso  de  condensarmos  todos  os  valores  das
+despesas em um só valor. Só para lembrar, o código era assim:
+
+```
+(defn despesa? [transacao]
+  (= (:tipo transacao) "despesa"))
+
+(defn so-valor [transacao]
+  (:valor transacao))
+
+(reduce + (map so-valor (filter despesa? transacoes)))
+;; 62.0
+```
+
+E pode ficar assim:

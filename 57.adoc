@@ -1,0 +1,39 @@
+sempre precisamos dar um nome a alguma função, já que às vezes
+elas são utilizadas apenas uma vez. Nestes casos, podemos preferir
+que  tais  funções  sejam  anônimas.  Por  exemplo,  no  código
+JavaScript  que  salga  uma  senha,  a  função  de  salgar,  quando
+anônima, ficaria assim:
+
+```
+gravarCliente("Gregório", "senhasegurademais", function(senha) {
+  return "salgrosso" + senha;
+});
+```
+
+Vamos  ver  como  ficaria  em  Clojure?  Que  tal  pegarmos  o
+exemplo para ver somente valores acima de 100? Começando com
+a função de filtragem declarada:
+
+```
+(defn valor-grande? [transacao]
+  (> (:valor transacao) 100))
+;; verifica se o valor de uma transação é maior que 100
+
+(filter valor-grande? transacoes)
+;; ({:valor 2700.0, :tipo "receita",
+;;   :comentario "Bico", :data "01/12/2016"})
+```
+
+Ora,  o  trecho  de  código  na  função  que  usamos  para  filtrar
+valores acima de 100 é bem pequeno e talvez seja utilizado em um
+só  lugar.  Parece  ter  um  bom  potencial  para  virar  uma  função
+anônima!  Então,  chegou  a  hora  de  entendermos  melhor  o  que  o
+ `defn`  faz.
+
+Clojure é sintaticamente muito simples, com poucas palavras-
+chaves e notações nativas, sendo  `def`  um destes recursos nativos
+(_special  form_,  como  consta  na  documentação  da  linguagem).  Só
+que Clojure provê um recurso chamado _macros_ (não são como as
+macros do Excel, ok?), que permite que a linguagem seja estendida.
+Às vezes, o mais simples é entender que algumas macros provêm
+atalhos.  Este  é  o  caso  de   `defn` :  uma  macro  para  definição  de

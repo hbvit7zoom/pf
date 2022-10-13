@@ -1,0 +1,42 @@
+```
+(reduce + (map #(:valor %)
+               (filter #(= (:tipo %) "despesa")
+                       transacoes)))
+;; 62.0
+```
+
+Mas,  e  agora?  Qual  forma  devo  utilizar?  Veja,  atingimos  o
+mesmo  resultado  de  ambas  as  formas.  Fica  a  seu  critério  qual
+forma utilizar quando ambas estiverem disponíveis.
+
+*Lendo código Clojure de uma outra forma*
+
+O código do exemplo anterior nos ajuda muito a contar como
+código em Clojure é lido diferente de outras linguagens. Primeiro
+procuramos saber o que acontece com  `filter` , depois com  `map` 
+e, por fim,  `reduce` . Mesmo que nossos olhos enxerguem primeiro
+ `reduce` ,  depois   `map`   e   `filter` .  É  bem  diferente  de  muitas
+outras linguagens, não?
+
+Para  ajudar  um  pouco  com  a  legibilidade,  às  vezes  até  vemos
+códigos  organizados  da  seguinte  forma,  e  então  tentamos  ler  de
+dentro para fora:
+
+```
+(reduce +
+        (map so-valor
+             (filter despesa?
+                     transacoes)))
+```
+
+Mas isso ainda pode não ser tão legível em casos complexos, ou
+nem  ser  a  preferência  de  algumas  pessoas.  Eis  que  surge  uma
+macro  interessante:   `->` .  Ela  nos  ajuda  a  escrevermos  código
+deixando  clara  a  ordem  de  execução.  Imagine  um  caso  simples
+onde  queremos  pegar  só  o  valor  da  primeira  transação  de  uma
+coleção:
+
+```
+(so-valor (first transacoes))
+;; 33.0
+```
