@@ -1,0 +1,45 @@
+para exibir mais detalhes:
+
+```
+;; relembrando valor-sinalizado
+(defn valor-sinalizado [transacao]
+  (let [moeda (:moeda transacao "R$")
+        valor (:valor transacao)]
+        (if (despesa? transacao)
+          (str moeda " -" valor)
+          (str moeda " +" valor))))
+
+(defn saldo-acumulado [acumulado transacoes]
+  (prn "Começou saldo-acumulado. Saldo até agora:" acumulado)
+  (if-let [transacao (first transacoes)]
+    (do
+      (prn "Valor da transação atual:"
+           (valor-sinalizado transacao))
+      (prn "Quantidade de transações restantes:"
+           (count (rest transacoes)))
+      (prn)
+      (saldo-acumulado (calcular acumulado transacao)
+                       (rest transacoes)))
+    (do
+      (prn "Processo encerrado. Saldo final:" acumulado)
+      acumulado)))
+
+(saldo-acumulado 0 transacoes)
+;; "Começou saldo-acumulado. Saldo até agora:" 0
+;; "Valor da transação atual:" "R$ -45"
+;; "Quantidade de transações restantes:" 3
+;;
+;; "Começou saldo-acumulado. Saldo até agora:" -45M
+;; "Valor da transação atual:" "R$ -33"
+;; "Quantidade de transações restantes:" 2
+;;
+;; "Começou saldo-acumulado. Saldo até agora:" -78M
+;; "Valor da transação atual:" "R$ +2700"
+;; "Quantidade de transações restantes:" 1
+;;
+;; "Começou saldo-acumulado. Saldo até agora:" 2622M
+;; "Valor da transação atual:" "R$ -29"
+;; "Quantidade de transações restantes:" 0
+;;
+;; "Começou saldo-acumulado. Saldo até agora:" 2593M
+;; "Processo encerrado. Saldo final:" 2593M

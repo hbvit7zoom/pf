@@ -1,0 +1,40 @@
+vimos  a  função   `rest`   no  exemplo  sobre  imutabilidade.  Ambas
+serão bastante úteis em uma solução para este processo de calcular
+o saldo recursivamente:
+
+```
+(defn despesa? [transacao]
+  (= (:tipo transacao) "despesa"))
+;; vamos recuperar a função que checa se uma transação é despesa
+
+(defn saldo-acumulado [acumulado transacoes]
+  ;; if-let
+  (if-let [transacao (first transacoes)]
+    ;; se _transacao_ existir, continue calculando o saldo
+    (saldo-acumulado (if (despesa? transacao)
+                          (- acumulado (:valor transacao))
+                          (+ acumulado (:valor transacao)))
+                     (rest transacoes))
+    ;; se não existir, a coleção de transacoes acabou e é hora de
+    ;; retornar o resultado
+    acumulado))
+```
+
+`if-let`   é  uma  macro  que  funciona  como   `let` ,  só  que  o
+bloco  dentro  dela  só  é  executado  se  o  elemento  entre  colchetes
+existir  (na  verdade,  se  for  qualquer  coisa  diferente  de   `nil`   e
+ `false` ). Se houver o elemento, ele executa o primeiro bloco que é
+passado.  No  exemplo,  é  aplicar   `saldo-acumulado`   novamente.
+Quando  acaba  a  lista  de  transações,  que  é  quando    (`first
+transacoes`)   retornar   `nil`,   `if-let`   vai  executar  o  segundo
+bloco, que é retornar  `acumulado` .
+
+Ao aplicar  `saldo-acumulado` , acabamos repetindo o mesmo
+processo, mas aqui é que entra o detalhe da recursão. A função é
+até  a  mesma,  mas  os  argumentos  são  diferentes.  Primeiro,
+decrementa-se  ou  incrementa-se  o  valor  do  saldo  e  repete-se  o
+processo  com  uma  nova  lista  de  transações  que  não  inclui  a
+transação utilizada nesta iteração. Vamos rodar o exemplo:
+
+```
+(saldo-acumulado 0 transacoes)

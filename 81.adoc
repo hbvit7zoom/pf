@@ -1,0 +1,25 @@
+== CAPÍTULO 7 PUREZA E IMUTABILIDADE
+Até  aqui,  vimos  o  potencial  de  trabalharmos  com  funções
+como  cidadãs  de  primeira  classe.  Vimos  também  como  construir
+funções  mais  ricas  a  partir  de  funções  mais  simples,  através  da
+composição. Ambas as ideias se tornam ainda mais poderosas por
+conta  de  duas  características  bastante  importantes:  pureza  e
+imutabilidade.
+
+=== 7.1 PUREZA
+
+Pureza é lidar com funções que não têm efeito colateral quando
+são aplicadas. Funções assim são chamadas de puras. Uma função
+que não tem efeitos colaterais permite que sua aplicação, desde que
+com  um  mesmo  argumento,  seja  sempre  previsível.  Isto  é
+conhecido  como  transparência  referencial.  A  função   `escrita-
+hacker`  a seguir, por exemplo, é pura:
+
+```
+(def de-para [{:de "a" :para "4"}
+              {:de "e" :para "3"}
+              {:de "i" :para "1"}
+              {:de "o" :para "0"}])
+
+(defn escrita-hacker [texto dicionario]
+  (if (empty? dicionario)

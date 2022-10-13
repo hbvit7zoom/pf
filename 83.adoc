@@ -1,0 +1,40 @@
+de  dados  ou  API  que  você  vai  ler,  pode  ter  mudado  entre  uma
+leitura e outra.
+
+Mas e qual a utilidade de um programa que não grava nada em
+um banco de dados ou lê informações de uma API? Verdade. Não
+que  em  programas  em  linguagens  funcionais  nunca  haja  efeitos
+colaterais.  O  que  acontece  é  que  eles  são  confinados.  Estas
+linguagens  dificultam  efeitos  colaterais,  mas  não  os  tornam
+impossíveis de acontecer.
+
+*Desfazendo uma impureza*
+
+No capítulo anterior vimos o seguinte código:
+
+```
+(def cotacoes
+  {:yuan {:cotacao 2.15M :simbolo "¥"}
+   :euro {:cotacao 0.28M :simbolo "€"}})
+
+(defn transacao-em-outra-moeda [moeda transacao]
+  (let [{{cotacao :cotacao simbolo :simbolo} moeda} cotacoes]
+                                                 ;; ^^^^^^^^
+    (assoc transacao :valor (* cotacao (:valor transacao))
+                     :moeda simbolo)))
+```
+
+Perceba que a função  `transacao-em-outra-moeda`  faz uso de
+ `cotacoes` . Parece um código bem inofensivo, mas acontece que a
+definição  de   `cotacoes`   acontece  fora  da  função  que  a  utiliza,  e
+podemos considerar que isso torna impura a função  `transacao-
+em-outra-moeda` .  O  correto  é  que  a  tabela  de  conversão  seja
+passada como argumento para a função, assim:
+
+```
+(def cotacoes
+  {:yuan {:cotacao 2.15M :simbolo "¥"}
+   :euro {:cotacao 0.28M :simbolo "€"}})
+
+(defn transacao-em-outra-moeda [cotacoes moeda transacao]
+                             ;; ^^^^^^^^ o novo argumento

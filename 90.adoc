@@ -1,0 +1,45 @@
+`registros` , você verá algo diferente do que temos visto até agora
+com outras referências:
+
+```
+registros
+;; #object[clojure.lang.Atom 0x6422b10f {:status :ready, :val ()}
+]
+;; Não necessariamente 0x6422b10f, mas algo assim
+```
+
+Isto acontece porque o que temos é, de fato, o que compõe um
+átomo.  Se  quisermos  obter  o  valor  atual  do  estado  do  átomo,
+precisamos fazer uso de um novo elemento, o símbolo  @ :
+
+```
+@registros
+;; ()
+```
+
+E assim obtemos a lista vazia que  `registros`  contém.
+
+Para  incluir  novos  elementos  nesta  lista,  utilizamos  a  função
+ `swap!` . Ela já chama a atenção pela exclamação no nome! Isso nos
+sugere  que  há  uma  mudança  de  estado  por  acontecer.   `swap!` 
+precisa de duas informações para fazer a mutação: o átomo alvo e
+uma  função,  junto  com  seus  argumentos,  que  será  aplicada  aos
+valores que o átomo contém. Vejamos como inserir uns elementos
+neste átomo:
+
+```
+(swap! registros conj {:valor 29M :tipo "despesa"
+                       :comentario "Livro de Clojure" :moeda "R$"
+                       :data "03/12/2016"})
+;; ({:valor 29M, :tipo "despesa", :comentario "Livro de Clojure",
+;;   :moeda "R$", :data "03/12/2016"})
+```
+
+`swap!`  recebe o átomo  `registros`  e a função  `conj` ,  logo
+em seguida, com uma transação como argumento. O que  `swap!` 
+faz aqui é aplicar  `conj`  com seu argumento, a  `registros` ,  que
+possui uma lista, até então, vazia. É o resultado do seguinte:
+
+```
+(conj {:valor 29M :tipo "despesa" :comentario "Livro de Clojure"
+       :moeda "R$" :data "03/12/2016"} ())

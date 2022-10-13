@@ -1,0 +1,34 @@
+`transacoes` ), com os novos valores avaliados na etapa anterior. E
+então o código volta a ser executado a partir do ponto logo após a
+entrada da função, antes do  `if` . A aridade de  `recur`  tem que ser
+igual ao ponto de recursão (no nosso caso, dois).  `recur`  tem que
+estar na posição derradeira, ou então dá erro.
+
+Tanto TCO quanto TRE são muito mais comuns no mundo da
+Programação Funcional do que no Imperativo ou da Orientação a
+Objetos.  Isso  se  dá  porque  a  maioria  das  soluções  que  vemos  no
+mundo  imperativo  envolve  loops  com  estruturas  tipo   for   e
+recursões  são  pouco  frequentes.  No  mundo  funcional,  recursão  é
+algo  muito  comum.  Algumas  linguagens  proveem  formas
+diferentes  de  lidar  com  TRE.  Scala,  por  exemplo,  oferece  uma
+anotação  ( `@tailrec` )  quando  você  espera  que  a  função  seja
+otimizada.  Como  a  máquina  virtual  Java  não  oferece  TCO,
+linguagens  implementadas  para  ela  devem  tratar  TCO  da  sua
+forma. Lua, por outro lado, oferece TCO por padrão.
+
+*Uma pegada diferente para o mesmo problema*
+
+Lembra da definição de  `reduce`  no capítulo 5, na parte sobre
+funções  de  grandeza  superior?  Algumas  recursões  podem  ser
+substituídas por  `reduce` . Este cálculo de saldo também pode:
+
+```
+(reduce calcular 0 transacoes)
+;; 2593M
+```
+
+E  esse   `0` ?   `reduce`   recebe  uma  função,  uma  coleção  e,
+opcionalmente, um valor inicial entre ambas. O  `0`   é  o  primeiro
+valor,  assim  como  passamos   0   para   `saldo-acumulado` .  E  aí
+ `calcular`   é  aplicada  a  cada  elemento  de   `transacoes` .  O
+resultado  é  definido  como  o  acumulador  e   `reduce`   parte  para

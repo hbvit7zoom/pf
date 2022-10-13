@@ -1,0 +1,40 @@
+
+[{:valor 33M :tipo "despesa" :comentario "Almoço"
+    :moeda "R$" :data "19/11/2016"}
+   {:valor 2700M :tipo "receita" :comentario "Bico"
+    :moeda "R$" :data "01/12/2016"}
+   {:valor 29M :tipo "despesa" :comentario "Livro de Clojure"
+    :moeda "R$" :data "03/12/2016"}])
+
+(def transacoes (cons {:valor 45M :tipo "despesa"
+                       :comentario "Jogo no Steam" :moeda "R$"
+                       :data "26/12/2016"}
+                 transacoes))
+```
+
+O valor da coleção dentro de  `transacoes`  não muda, mas a
+referência  `transacoes`  agora se refere uma outra coleção.
+
+Mas  algumas  vezes  podemos  precisar  manter  a  referência  e
+mudar o valor do seu conteúdo. Um contador, por exemplo, é um
+caso. Caching, outro. Clojure cuida para que as mutações ocorram
+de forma atômica. E podemos usar o mesmo recurso para manter
+uma  base  de  dados  de  transações  na  memória,  e  faremos  uso  de
+ `atom` ,  que  é  uma  das  formas  que  a  linguagem  provê  para  o
+gerenciamento de estado. Vejamos  `atom`  em uso:
+
+```
+(def registros (atom ()))
+;; #'user/registros
+```
+
+****
+Para mais detalhes sobre  `atom` ,  os  livros  _Clojure Applied  e
+Joy of Clojure_  fazem  uma  discussão  mais  profunda  sobre  o
+assunto, e o livro _Programming Clojure_ fala sobre os detalhes
+de  como  Clojure  trata  sobre  a  atomicidade  de  alterações  de
+dados.
+****
+
+Acabamos de criar  `registros` , que referencia um átomo que
+contém  uma  lista  vazia.  No  REPL,  se  consultarmos  apenas

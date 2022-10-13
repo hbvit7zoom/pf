@@ -1,0 +1,44 @@
+```
+(defn saldo
+
+  ;; caso a função receba só um argumento
+  ([transacoes]
+     (saldo 0 transacoes))
+
+  ;; caso a função receba dois argumentos
+  ([acumulado transacoes]
+    (if-let [transacao (first transacoes)]
+      (saldo (calcular acumulado transacao) (rest transacoes))
+      acumulado)))
+
+(saldo transacoes)
+;; 2593M
+
+(saldo 0 transacoes)
+;; 2593M
+```
+
+Legal,  né?  O  importante  aqui  é  ver  como  resolvemos
+problemas  de  forma  recursiva,  essencial  no  mundo  da
+Programação  Funcional.  Mas  temos  uma  revisão  por  fazer  aqui.
+Esta  função  não  funciona  para  uma  lista  muito  grande  de
+transações:
+
+```
+(defn como-transacao [valor]
+  {:valor valor})
+
+(def poucas-transacoes
+  (map como-transacao (range 10)))
+
+(def muitas-transacoes
+  (map como-transacao (range 1000)))
+
+(def incontaveis-transacoes
+  (map como-transacao (range 100000)))
+
+(saldo poucas-transacoes)
+;; 45
+
+(saldo muitas-transacoes)
+;; 499500

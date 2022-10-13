@@ -1,0 +1,17 @@
+repetir  o  mesmo  procedimento  com  os  demais  itens  de
+ `transacoes` . As duas soluções são diferentes, apesar de gerarem
+o  mesmo  resultado.  A  ideia  aqui  é  mostrar  para  você  quais
+ferramentas estão disponíveis para a resolução de problemas.
+
+=== 7.5 CONCLUSÃO
+
+Imutabilidade  e  pureza  são  essenciais  para  a  escrita  de
+programas funcionais. Junto com estes princípios, vem uma nova
+forma  de  pensar  em  soluções.  E  então  recursão  passa  a  ser  mais
+comum no nosso  dia a dia.  No próximo capítulo,  vamos falar de
+um  recurso  bem  diferente,  mas  muito  útil.  Refiro-me  à  preguiça.
+Não  aquela  que  lhe  faz  ver  seriados  em  vez  de  seguir  para  o
+próximo  capítulo  deste  livro,  mas  sim  a  capacidade  de  só  fazer
+alguma coisa quando for realmente a hora de fazê-la.
+
+Pensando bem, será que não são a mesma coisa?

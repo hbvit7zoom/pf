@@ -1,0 +1,34 @@
+
+(saldo incontaveis-transacoes)
+;; StackOverflowError...
+```
+
+Isso  acontece  porque  acabamos  empilhando  mais  dados  na
+pilha  de  execução  do  que  o  possível,  dado  o  limite  de  memória
+disponibilizado  para  nosso  programa.  E,  como  ainda  não
+utilizamos  nenhum  recurso  de  otimização  que  Clojure  oferece,
+encontramos um erro de estouro de pilha.
+
+*Tail Call Optimization e Tail Recursion Elimination*
+
+Quando  uma  função  é  invocada,  um  conjunto  de  dados  é
+alocado  na  memória  do  seu  computador.  Estes  dados  são
+empilhados, a cada chamada de função, no que é conhecido como
+pilha de execução. Nesta pilha, para cada função, são guardadas as
+variáveis locais à função, os parâmetros que lhe foram passados e o
+endereço  de  memória  para  o  qual  o  programa  deve  retornar
+quando  a  função  acabar.  Quando  a  função  encerra  seu
+processamento,  seus  dados  são  removidos  da  pilha  de  execução.
+No exemplo anterior, ao aplicar  saldo , a máquina virtual coloca
+na  pilha  os  argumentos  (uma  coleção  de  transações  e,  talvez,  o
+valor  acumulado)  e  um  endereço  de  retorno  (abstraído  para  a
+gente).
+
+O  erro  que  acabamos  de  ver  acontece  quando  aninhamos
+várias  aplicações  de  funções  sem  que  elas  cheguem  a  seu  fim.  E
+assim  acabamos  empilhando  muita  coisa,  a  ponto  de  causar  o
+estouro  da  pilha  de  execução.  Existe  um  limite  de  memória  que
+podemos utilizar e, de tanto empilhar coisas, estouramos o limite.
+Este  limite  é  definido  pela  máquina  virtual  Java,  que  é
+configurável.  Normalmente  os  programas  são  abortados  quando
+um estouro de pilha acontece. Perceba que  `saldo`  aplica  `saldo` ,

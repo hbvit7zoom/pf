@@ -1,0 +1,49 @@
+
+;; perceba a lista vazia no final, ()
+;; a transação passada para conj é incluída nesta lista
+```
+
+Daí utilizamos a mesma lógica para incluir os demais valores:
+
+```
+(swap! registros conj
+                 {:valor 2700M :tipo "receita" :comentario "Bico"
+                  :moeda "R$" :data "01/12/2016"})
+;; ({:valor 2700M, :tipo "receita", :comentario "Bico",
+;;   :moeda "R$", :data "01/12/2016"}
+;;  {:valor 29M, :tipo "despesa", :comentario "Livro de Clojure",
+;;   :moeda "R$", :data "03/12/2016"})
+```
+
+Para evitar duplicação, vamos criar uma função para inserção
+de transações neste banco de dados:
+
+```
+;; abstraindo inclusão de dados no átomo
+(defn registrar [transacao]
+  (swap! registros conj transacao))
+
+;; fazendo uso desta absração
+(registrar {:valor 33M :tipo "despesa" :comentario "Almoço"
+            :moeda "R$" :data "19/11/2016"})
+;; ({:valor 33M, :tipo "despesa", :comentario "Almoço",
+;;   :moeda "R$", :data "19/11/2016"}
+;;  {:valor 2700M, :tipo "receita", :comentario "Bico",
+;;   :moeda "R$", :data "01/12/2016"}
+;;  {:valor 29M, :tipo "despesa", :comentario "Livro de Clojure",
+;;   :moeda "R$", :data "03/12/2016"})
+
+;; fazendo uso desta absração de novo
+(registrar {:valor 45M :tipo "despesa" :comentario "Jogo no Steam
+"
+            :moeda "R$" :data "26/12/2016"})
+;; ({:valor 45M, :tipo "despesa", :comentario "Jogo no Steam",
+;;   :moeda "R$", :data "26/12/2016"}
+;;  {:valor 33M, :tipo "despesa", :comentario "Almoço",
+;;   :moeda "R$", :data "19/11/2016"}
+;;  {:valor 2700M, :tipo "receita", :comentario "Bico",
+;;   :moeda "R$", :data "01/12/2016"}
+;;  {:valor 29M, :tipo "despesa", :comentario "Livro de Clojure",
+;;   :moeda "R$", :data "03/12/2016"})
+
+;; agora vamos abstrair a leitura de dados do átomo:

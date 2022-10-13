@@ -1,0 +1,31 @@
+dentro  do  corpo  da  função,  e  agora  temos  uma  versão  pura  de
+ `transacao-em-outra-moeda` . 
+
+=== 7.2 IMUTABILIDADE
+
+Mudanças de estado são bem raras em Clojure. Isso porque a
+linguagem  força  o  uso  de  estruturas  de  dados  que  não  são
+modificáveis. Um mapa em Clojure não é editável. Uma String não
+é concatenável. Isso faz com que sejam imutáveis. Só para deixar
+claro: imutável é algo que não muda, de jeito nenhum, nem com
+reza braba! Nada muda em um dado depois que ele é criado. Estas
+estruturas de dados imutáveis são conhecidas como estruturas de
+dados permanentes.
+
+Quando vemos um novo par de chave e valor sendo incluído
+em  um  mapa,  o  que  acontece  é  que  o  mapa  existente  é
+reaproveitado como base para o novo mapa, com os novos valores.
+Ou  quando  incluímos  um  novo  elemento  em  uma  lista:  na
+realidade, não incluímos um elemento, criamos uma nova lista que
+inclui os elementos anteriores e o novo elemento.
+
+Mas quais são as vantagens da imutabilidade? No livro _The Joy
+of  Clojure_,  Michael  Fogus  e  Chris  Houser  levantam  algumas
+vantagens:
+
+* Dada  a  invariância  dos  dados,  nós  só  precisamos  nos
+preocupar  com  a  validação  das  informações  no  momento
+em que eles são criados. Quando há mutabilidade, é preciso
+aplicar as validações requeridas a cada alteração;
+* Quando há a possibilidade de mutação, dois dados que são
+iguais agora podem não ser iguais no futuro. E aí, em um
