@@ -1,0 +1,42 @@
+na  aplicação  de  função  que  costumam  acontecer  juntas.  É  uma
+importante forma de reúso. Uma outra forma é a aplicação parcial
+de uma função, conhecida em inglês como _partial application_.
+
+=== 6.2 APLICAÇÃO PARCIAL
+
+Vimos uma função que converte um valor de real pra yuan:
+
+```
+(defn transacao-em-yuan [transacao]
+  (let [yuan (:yuan cotacoes)]
+    (assoc transacao :valor (* (:cotacao yuan) (:valor transacao))
+
+                     :moeda (:simbolo yuan))))
+
+(transacao-em-yuan (first transacoes))
+;; {:valor 70.950M, :tipo "despesa", :comentario "Almoço",
+;;  :moeda "¥", :data "19/11/2016"}
+```
+
+Existe um recurso em Clojure chamado de desestruturação, do
+inglês  _destructuring_,  que  permite  aprimorarmos  o  uso  de   `let` 
+quando  precisamos  extrair  valores  de  um  argumento  que  é  um
+mapa. A ideia é associarmos nomes a valores de chaves, da mesma
+forma que  `let`   faz,  mas  com  uma  sintaxe  que  vai  simplificar  o
+conteúdo dentro da função:
+
+```
+(defn transacao-em-yuan [transacao]
+  (let [{yuan :yuan} cotacoes]
+    (assoc transacao :valor (* (:cotacao yuan) (:valor transacao))
+
+                     :moeda (:simbolo yuan))))
+
+(transacao-em-yuan (first transacoes))
+;; {:valor 70.950M, :tipo "despesa", :comentario "Almoço",
+;;  :moeda "¥", :data "19/11/2016"}
+```
+
+`cotacoes`  é um mapa e um de seus elementos possui  `:yuan` 
+como  chave.  No  exemplo  anterior,  o    `let`    faz  uso  da
+desestruturação para extrair de  `cotacoes`  o valor de  `:yuan`  e o

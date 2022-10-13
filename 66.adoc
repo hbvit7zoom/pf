@@ -1,0 +1,39 @@
+****
+*SOBRE O ESTILO DO CÓDIGO*
+
+Você  vai  perceber  que  alguns  blocos  de  código  possuem
+quebra  de  linha  que  pode  comprometer  um  pouco  sua
+estética.  Isso  acontece  porque  há  um  limite  de  67  caracteres
+por linha de código para a exibição no livro e preferi quebrar
+linhas a permitir que um elemento de um código ficasse com
+um pedaço em uma linha e outro pedaço em outra.
+
+O  capítulo  14  referencia  um  formatador  de  código  (cljfmt,
+https://github.com/weavejester/cljfmt).  Se  preferir,  pode
+começar a utilizá-lo. Os códigos da parte 3 deste livro podem
+ser encontrados em http://gitlab.com/programacaofuncional/
+e possuem a formatação que eu gostaria de ter utilizado aqui.
+****
+
+Agora  precisamos  de  uma  função  que  pegue  o  valor  de  uma
+transação e coloque  `+`  ou  -  antes do seu valor:
+
+```
+(defn valor-sinalizado [transacao]
+  (if (= (:tipo transacao) "despesa")
+        (str "-" (:valor transacao))
+        (str "+" (:valor transacao))))
+
+(valor-sinalizado (first transacoes))
+;; "-33.0"
+
+(valor-sinalizado (second transacoes))
+;; "+2700.0"
+```
+
+Falta  a  moeda  ainda,  não  é?  Vamos  atualizar    `valor-
+sinalizado` :
+
+```
+(defn valor-sinalizado [transacao]
+  (if (= (:tipo transacao) "despesa")

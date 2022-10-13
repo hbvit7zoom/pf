@@ -1,0 +1,11 @@
+juntas. A aplicação parcial de funções, apesar ocorrer com menos
+frequência  do  que  a  composição,  pode  simplificar  bastante  as
+partes de um programa. De novo, o custo de implementação é bem
+baixo  pelo  mesmo  motivo  do  custo  da  composição.  Com  estes
+recursos em mão, temos mais ferramentas para reúso de código e
+escrita de programas mais enxutos.
+
+No  próximo  capítulo,  vamos  falar  sobre  pureza  e
+imutabilidade,  que  são  características  essenciais  de  funções  que
+permitem  que  todas  estas  coisas  legais  sejam  possíveis  nesse
+mundo!

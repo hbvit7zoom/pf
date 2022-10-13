@@ -1,0 +1,45 @@
+Clojure?  Imagine  que  uma  transação  não  tenha  uma  moeda
+definida,  e,  em  um  caso  como  este,  queremos  que   `"R$"`   seja
+retornado por padrão. Sem uma moeda definida, como na seguinte
+transação aleatória, o resultado de  `valor-sinalizado`  fica assim:
+
+```
+(def transacao-aleatoria {:valor 9.0})
+
+(valor-sinalizado transacao-aleatoria)
+;; " +9.0"
+```
+
+Perceba  que  não  veio  nada  como  moeda.  Se  quisermos  ter
+sempre  `"R$"`  como valor padrão sempre que não há uma moeda
+definida,  podemos  dizer  isso  à  função  que  pega  o  valor  de  uma
+chave em um mapa:
+
+```
+(:moeda transacao-aleatoria)
+;; nil
+
+(:moeda transacao-aleatoria "R$")
+;; "R$"
+```
+
+E agora podemos atualizar nossa função  `valor-sinalizado` 
+para lidar com transações sem moeda definida:
+
+```
+(defn valor-sinalizado [transacao]
+  (let [moeda (:moeda transacao "R$")
+        valor (:valor transacao)]
+        (if (= (:tipo transacao) "despesa")
+          (str moeda " -" valor)
+          (str moeda " +" valor))))
+
+(valor-sinalizado (first transacoes))
+;; "R$ -33.0"
+
+(valor-sinalizado (second transacoes))
+;; "R$ +2700.0"
+
+(valor-sinalizado transacao-aleatoria)
+;; "R$ +9.0"
+```

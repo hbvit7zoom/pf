@@ -1,0 +1,43 @@
+```
+;;  "01/12/2016 => ¥ +5805.000" ...
+;;  "03/12/2016 => ¥ -62.350")
+```
+
+Perceba que usamos  `def` , e não  `defn` . Lembrando,  `defn`  é a
+forma  curta  para    `(def  nome-da-funcao  (fn  [argumento]
+(<alguma  operação  aqui>)))`  ,  abstraindo  a  necessidade  de
+declarar  `fn` .   `comp`   funciona  como   `fn` ,  pois  cria  uma  função
+para nós, cujo nome é  `texto-resumo-em-yuan` . E o corpo desta
+função é a composição de  `data-valor`  e  `transacao-em-yuan` ,
+sendo  que  esta  última  é  aplicada  ao  argumento  passado,  e  o
+resultado é utilizado como argumento para  `data-valor` .  Assim,
+as 3 definições a seguir de  `texto-resumo-em-yuan`  se comportam
+da mesma forma:
+
+```
+(defn texto-resumo-em-yuan [transacao]
+  (data-valor (transacao-em-yuan transacao)))
+
+(map texto-resumo-em-yuan transacoes)
+;; ("19/11/2016 => ¥ -70.950" ...
+;;  "01/12/2016 => ¥ +5805.000" ...
+;;  "03/12/2016 => ¥ -62.350")
+
+(defn texto-resumo-em-yuan [transacao]
+  (-> (transacao-em-yuan transacao)
+      (data-valor)))
+
+(map texto-resumo-em-yuan transacoes)
+;; ("19/11/2016 => ¥ -70.950" ...
+;;  "01/12/2016 => ¥ +5805.000" ...
+;;  "03/12/2016 => ¥ -62.350")
+
+(def texto-resumo-em-yuan (comp data-valor transacao-em-yuan))
+
+(map texto-resumo-em-yuan transacoes)
+;; ("19/11/2016 => ¥ -70.950" ...
+;;  "01/12/2016 => ¥ +5805.000" ...
+;;  "03/12/2016 => ¥ -62.350")
+```
+
+Composição de funções é bastante útil quando há a repetição

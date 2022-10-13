@@ -1,0 +1,42 @@
+ser.  `let`  pode nos ajudar mais uma vez:
+
+```
+(defn transacao-em-yuan [transacao]
+  (let [yuan (:yuan cotacoes)]
+    (assoc transacao :valor (* (:cotacao yuan) (:valor transacao))
+
+                     :moeda (:simbolo yuan))))
+
+(transacao-em-yuan (first transacoes))
+;; {:valor 70.95, :tipo "despesa", :comentario "Almoço",
+;;  :moeda "¥", :data "19/11/2016"}
+```
+Ora, agora podemos praticar a formatação com  `data-valor` 
+com uma transação tanto em real quanto em yuan:
+
+```
+(data-valor (first transacoes))
+;; "19/11/2016 => R$ -33.0"
+
+(data-valor (transacao-em-yuan (first transacoes)))
+;; "19/11/2016 => ¥ -70.95"
+
+(defn texto-resumo-em-yuan [transacao]
+  (data-valor (transacao-em-yuan transacao)))
+
+(map texto-resumo-em-yuan transacoes)
+;; ("19/11/2016 => ¥ -70.95" ...
+;;  "01/12/2016 => ¥ +5805.0" ...
+;;  "03/12/2016 => ¥ -62.349999999999994")
+```
+
+Ops!   `62.349999999999994` !?  Bem,  devido  à  imprecisão  em
+operações  aritméticas  com  números  de  pontos  flutuantes  (a
+cotação  da  moeda,  2,15,  e  o  próprio  valor  da  transação,  29,0),
+temos  este  número  estranho.  Em  Clojure,  pontos  flutuantes  e
+inteiros  do  tipo   `BigInt`   são  contagiantes,  o  que  significa  que
+qualquer  operação  que  envolva  um    `double`    retornará  um
+ `double` . O mesmo acontece com  `BigInt` .
+
+Para  termos  uma  melhor  precisão  em  operações  aritméticas,
+precisamos fazer uso do tipo  `BigDecimal` :
