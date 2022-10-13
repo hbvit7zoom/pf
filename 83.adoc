@@ -38,4 +38,3 @@ passada como argumento para a função, assim:
 
 (defn transacao-em-outra-moeda [cotacoes moeda transacao]
                              ;; ^^^^^^^^ o novo argumento
-```

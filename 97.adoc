@@ -43,4 +43,3 @@ para exibir mais detalhes:
 ;;
 ;; "Começou saldo-acumulado. Saldo até agora:" 2593M
 ;; "Processo encerrado. Saldo final:" 2593M
-```

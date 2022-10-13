@@ -1,4 +1,4 @@
-```
+
 ;; 2593M
 
 ;; e qual seria o resultado com uma lista sem transações?

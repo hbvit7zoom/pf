@@ -32,4 +32,3 @@ reescrever  `saldo`  para que haja tail recursion:
   ([transacoes] (saldo 0 transacoes))
   ([acumulado transacoes]
    (if (empty? transacoes)
-```

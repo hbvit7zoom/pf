@@ -26,7 +26,7 @@ existir  (na  verdade,  se  for  qualquer  coisa  diferente  de   `nil`   e
  `false` ). Se houver o elemento, ele executa o primeiro bloco que é
 passado.  No  exemplo,  é  aplicar   `saldo-acumulado`   novamente.
 Quando  acaba  a  lista  de  transações,  que  é  quando    (`first
-transacoes`)   retornar   `nil` ,   `if-let`   vai  executar  o  segundo
+transacoes`)   retornar   `nil`,   `if-let`   vai  executar  o  segundo
 bloco, que é retornar  `acumulado` .
 
 Ao aplicar  `saldo-acumulado` , acabamos repetindo o mesmo
@@ -38,4 +38,3 @@ transação utilizada nesta iteração. Vamos rodar o exemplo:
 
 ```
 (saldo-acumulado 0 transacoes)
-```

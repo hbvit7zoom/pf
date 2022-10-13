@@ -1,4 +1,4 @@
-```
+
 (def transacoes @registros)
 transacoes
 ;; ({:valor 45M, :tipo "despesa", :comentario "Jogo no Steam",
@@ -37,4 +37,3 @@ public Double saldoDeFormaImperativa(List<Transacao> transacoes)
 
     for (Transacao t : transacoes) {
         if (t.ehDespesa()) {
-```

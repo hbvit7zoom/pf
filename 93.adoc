@@ -1,4 +1,4 @@
-```
+
             saldo = saldo - t.getValor();
         } else {
             saldo = saldo + t.getValor();
@@ -32,5 +32,5 @@ valor da transação; e
 valor  calculado  na  etapa  anterior  e  as  transações  sem  a
 transação utilizada na etapa anterior.
 
-Até  aqui  usamos    (`first  transacoes`)    com  bastante
+Até  aqui  usamos    `(first  transacoes)`    com  bastante
 frequência  para  pegar  o  primeiro  elemento  de  uma  coleção,  e

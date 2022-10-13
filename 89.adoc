@@ -1,4 +1,4 @@
-```
+
 [{:valor 33M :tipo "despesa" :comentario "Almoço"
     :moeda "R$" :data "19/11/2016"}
    {:valor 2700M :tipo "receita" :comentario "Bico"
@@ -27,6 +27,7 @@ gerenciamento de estado. Vejamos  `atom`  em uso:
 (def registros (atom ()))
 ;; #'user/registros
 ```
+
 ****
 Para mais detalhes sobre  `atom` ,  os  livros  _Clojure Applied  e
 Joy of Clojure_  fazem  uma  discussão  mais  profunda  sobre  o

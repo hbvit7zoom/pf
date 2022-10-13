@@ -1,4 +1,4 @@
-```
+
 ;; perceba a lista vazia no final, ()
 ;; a transação passada para conj é incluída nesta lista
 ```
@@ -47,4 +47,3 @@ de transações neste banco de dados:
 ;;   :moeda "R$", :data "03/12/2016"})
 
 ;; agora vamos abstrair a leitura de dados do átomo:
-```

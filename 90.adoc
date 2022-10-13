@@ -43,4 +43,3 @@ possui uma lista, até então, vazia. É o resultado do seguinte:
 ```
 (conj {:valor 29M :tipo "despesa" :comentario "Livro de Clojure"
        :moeda "R$" :data "03/12/2016"} ())
-```

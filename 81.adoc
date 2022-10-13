@@ -12,8 +12,8 @@ Pureza é lidar com funções que não têm efeito colateral quando
 são aplicadas. Funções assim são chamadas de puras. Uma função
 que não tem efeitos colaterais permite que sua aplicação, desde que
 com  um  mesmo  argumento,  seja  sempre  previsível.  Isto  é
-conhecido  como  transparência  referencial.  A  função   escrita-
-hacker  a seguir, por exemplo, é pura:
+conhecido  como  transparência  referencial.  A  função   `escrita-
+hacker`  a seguir, por exemplo, é pura:
 
 ```
 (def de-para [{:de "a" :para "4"}
@@ -23,4 +23,3 @@ hacker  a seguir, por exemplo, é pura:
 
 (defn escrita-hacker [texto dicionario]
   (if (empty? dicionario)
-```

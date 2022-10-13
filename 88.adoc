@@ -46,4 +46,3 @@ Ou ainda:
 
 ```
 (def transacoes
-```

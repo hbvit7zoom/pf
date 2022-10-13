@@ -1,4 +1,4 @@
-```
+
      acumulado
      (saldo (calcular acumulado (first transacoes))
             (rest transacoes)))))
@@ -39,6 +39,6 @@ especial de Clojure que faz a _tail recursion elimination_:  `recur` :
 começar  e  o  compilador  pode  realizar  suas  otimizações.  Perceba
 que  a  última  chamada  em   saldo   é   `recur` ,  e  não  uma  nova
 chamada  a    `saldo`  ,  como  nos  exemplos  anteriores.    `recur` 
-primeiro  avalia  os  argumentos  ( (`calcular  acumulado`  (`first
-transacoes`))   e   (`rest  transacoes`) ).  Em  paralelo,  refaz  as
+primeiro  avalia  os  argumentos  ( `(calcular  acumulado  (first
+transacoes))`   e   `(rest  transacoes)` ).  Em  paralelo,  refaz  as
 referências  que  são  argumentos  no  loop  (  `acumulado`    e

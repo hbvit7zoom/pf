@@ -1,7 +1,7 @@
-`acumulado...`   e   `acumulado`  .  Precisamos  escrever    prn    e
+`acumulado...`   e   `acumulado`  .  Precisamos  escrever    `prn`    e
   `saldo-acumulado`    de  modo  que  elas  sejam  consideradas
 aplicadas dentro de um bloco só. Para isso, podemos contar com a
-função  `do` . Assim:
+função  `do`. Assim:
 
 ```
 (defn saldo-acumulado [acumulado transacoes]

@@ -1,4 +1,4 @@
-```
+
 texto
     (let [conversao (first dicionario)]
       (escrita-hacker (clojure.string/replace texto

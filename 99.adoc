@@ -42,4 +42,3 @@ transações:
 
 (saldo muitas-transacoes)
 ;; 499500
-```
